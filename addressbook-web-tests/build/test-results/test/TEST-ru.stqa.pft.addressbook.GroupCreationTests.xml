@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.stqa.pft.addressbook.GroupCreationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-06T18:54:18" hostname="DESKTOP-8G39DAE" time="1.66">
+<testsuite name="ru.stqa.pft.addressbook.GroupCreationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-06T20:50:45" hostname="DESKTOP-8G39DAE" time="1.086">
   <properties/>
-  <testcase name="testGroupCreationTests" classname="ru.stqa.pft.addressbook.GroupCreationTests" time="1.66"/>
+  <testcase name="testGroupCreation" classname="ru.stqa.pft.addressbook.GroupCreationTests" time="1.086"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-1641495255354	geckodriver	INFO	Listening on 127.0.0.1:49977
-1641495255563	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "63375" "-no-remote" "-profile" "C:\\Users\\Tanya\\AppData\\Local\\Temp\\rust_mozprofile1PlPZh"
-1641495255959	Marionette	INFO	Marionette enabled
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Tanya\\AppData\\Local\\Temp\\rust_mozprofile1PlPZh\\search.json.mozlz4", (void 0)))
-DevTools listening on ws://localhost:63375/devtools/browser/83f51fd8-ccde-44d5-ad64-2c8fcd0bc680
-1641495257940	Marionette	INFO	Listening on port 62516
-1641495258252	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-янв. 06, 2022 9:54:18 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+1641502242999	geckodriver	INFO	Listening on 127.0.0.1:54965
+1641502243215	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "65284" "-no-remote" "-profile" "C:\\Users\\Tanya\\AppData\\Local\\Temp\\rust_mozprofiled5kT3U"
+1641502243517	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Tanya\\AppData\\Local\\Temp\\rust_mozprofiled5kT3U\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:65284/devtools/browser/39705e41-dc9e-4524-a3a1-a197fd86c738
+1641502245248	Marionette	INFO	Listening on port 57832
+1641502245364	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+янв. 06, 2022 11:50:45 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
+1641502247034	Marionette	INFO	Stopped listening on port 57832
+JavaScript error: resource:///modules/Interactions.jsm, line 209: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+!!! error running onStopped callback: TypeError: callback is not a function
+1641502247415	RemoteAgent	ERROR	unable to stop listener: [Exception... "Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIWindowMediator.getEnumerator]"  nsresult: "0x8000ffff (NS_ERROR_UNEXPECTED)"  location: "JS frame :: chrome://remote/content/cdp/observers/TargetObserver.jsm :: stop :: line 64"  data: no] Stack trace: stop()@TargetObserver.jsm:64
+unwatchForTabs()@TargetList.jsm:70
+unwatchForTargets()@TargetList.jsm:37
+destructor()@TargetList.jsm:109
+stop()@CDP.jsm:104
+close()@RemoteAgent.jsm:138
 ]]></system-err>
 </testsuite>
