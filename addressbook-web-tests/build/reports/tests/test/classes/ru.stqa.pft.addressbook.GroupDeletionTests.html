@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - Class ru.stqa.pft.addressbook.GroupCreationTests</title>
+<title>Test results - Class ru.stqa.pft.addressbook.GroupDeletionTests</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>Class ru.stqa.pft.addressbook.GroupCreationTests</h1>
+<h1>Class ru.stqa.pft.addressbook.GroupDeletionTests</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/ru.stqa.pft.addressbook.html">ru.stqa.pft.addressbook</a> &gt; GroupCreationTests</div>
+<a href="../packages/ru.stqa.pft.addressbook.html">ru.stqa.pft.addressbook</a> &gt; GroupDeletionTests</div>
 <div id="summary">
 <table>
 <tr>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.058s</div>
+<div class="counter">0.637s</div>
 <p>duration</p>
 </div>
 </td>
@@ -78,8 +78,8 @@
 </tr>
 </thead>
 <tr>
-<td class="success">testGroupCreation</td>
-<td class="success">1.058s</td>
+<td class="success">testGroupDeletion</td>
+<td class="success">0.637s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -90,23 +90,19 @@
 <pre>SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-1641504456488	geckodriver	INFO	Listening on 127.0.0.1:51702
-1641504456712	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;--remote-debugging-port&quot; &quot;52928&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\Tanya\\AppData\\Local\\Temp\\rust_mozprofileHurJyT&quot;
-1641504457079	Marionette	INFO	Marionette enabled
-console.warn: SearchSettings: &quot;get: No settings file exists, new profile?&quot; (new NotFoundError(&quot;Could not open the file at C:\\Users\\Tanya\\AppData\\Local\\Temp\\rust_mozprofileHurJyT\\search.json.mozlz4&quot;, (void 0)))
-DevTools listening on ws://localhost:52928/devtools/browser/5d505aab-f42b-44b8-9759-90094f09b4cd
-1641504458805	Marionette	INFO	Listening on port 52960
-1641504458873	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-янв. 07, 2022 12:27:38 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+1641574803506	geckodriver	INFO	Listening on 127.0.0.1:64701
+1641574803751	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;--remote-debugging-port&quot; &quot;59011&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\Tanya\\AppData\\Local\\Temp\\rust_mozprofileSxKnBY&quot;
+1641574804125	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: &quot;get: No settings file exists, new profile?&quot; (new NotFoundError(&quot;Could not open the file at C:\\Users\\Tanya\\AppData\\Local\\Temp\\rust_mozprofileSxKnBY\\search.json.mozlz4&quot;, (void 0)))
+DevTools listening on ws://localhost:59011/devtools/browser/a5389af8-1269-47f9-ac5d-0836ab0476a5
+1641574806138	Marionette	INFO	Listening on port 56578
+1641574806430	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+янв. 07, 2022 8:00:06 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
-1641504460511	Marionette	INFO	Stopped listening on port 52960
+1641574807736	Marionette	INFO	Stopped listening on port 56578
 JavaScript error: resource:///modules/Interactions.jsm, line 209: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
-[Parent 13672, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
 !!! error running onStopped callback: TypeError: callback is not a function
-
-###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
-
-1641504460940	RemoteAgent	ERROR	unable to stop listener: [Exception... &quot;Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIWindowMediator.getEnumerator]&quot;  nsresult: &quot;0x8000ffff (NS_ERROR_UNEXPECTED)&quot;  location: &quot;JS frame :: chrome://remote/content/cdp/observers/TargetObserver.jsm :: stop :: line 64&quot;  data: no] Stack trace: stop()@TargetObserver.jsm:64
+1641574808329	RemoteAgent	ERROR	unable to stop listener: [Exception... &quot;Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIWindowMediator.getEnumerator]&quot;  nsresult: &quot;0x8000ffff (NS_ERROR_UNEXPECTED)&quot;  location: &quot;JS frame :: chrome://remote/content/cdp/observers/TargetObserver.jsm :: stop :: line 64&quot;  data: no] Stack trace: stop()@TargetObserver.jsm:64
 unwatchForTabs()@TargetList.jsm:70
 unwatchForTargets()@TargetList.jsm:37
 destructor()@TargetList.jsm:109
@@ -123,7 +119,7 @@ close()@RemoteAgent.jsm:138
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.3.3-rc-1</a> at 7 янв. 2022 г., 00:27:41</p>
+<a href="http://www.gradle.org">Gradle 7.3.3-rc-1</a> at 7 янв. 2022 г., 20:00:09</p>
 </div>
 </div>
 </body>
