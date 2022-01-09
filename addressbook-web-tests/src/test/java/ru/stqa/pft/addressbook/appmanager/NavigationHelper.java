@@ -1,16 +1,16 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class NavigationHelper {
+public class NavigationHelper extends HelperBase{
     protected GroupHelper groupHelper;
-    private FirefoxDriver wd;
 
     public NavigationHelper(FirefoxDriver wd) {
-        this.wd = wd;
+        super(wd);
     }
 
     public void gotoGroupPage() {
-        groupHelper.returnToGroupPage();
+       click(By.linkText("groups"));
     }
 }
