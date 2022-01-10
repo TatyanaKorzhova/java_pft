@@ -13,7 +13,8 @@ public class TestBase {
         app.init();
     }
 
-    @AfterMethod(alwaysRun = true)
+  // @AfterMethod(alwaysRun = true)
+    @AfterMethod
     public void tearDown() throws Exception {
         app.stop();
     }
