@@ -16,7 +16,7 @@ public class EntryModificationTests extends TestBase {
 
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
-    wd = new FirefoxDriver();
+  //  wd = new FirefoxDriver();
     baseUrl = "https://www.google.com/";
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
