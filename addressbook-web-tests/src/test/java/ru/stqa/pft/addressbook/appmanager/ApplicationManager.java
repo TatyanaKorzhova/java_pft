@@ -10,8 +10,7 @@ public class ApplicationManager {
 
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
-    private GroupHelper groupHelper;
-    
+
     public void init() {
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -19,6 +18,7 @@ public class ApplicationManager {
 
         navigationHelper = new NavigationHelper(wd);
         navigationHelper.groupHelper = new GroupHelper(wd);
+        navigationHelper.entryHelper = new EntryHelper(wd);
         sessionHelper = new SessionHelper(wd);
         sessionHelper.login("admin", "secret");
     }
@@ -27,15 +27,21 @@ public class ApplicationManager {
         wd.findElement(By.linkText("Logout")).click();
     }
 
-    public void stop() {
-        wd.quit();
-    }
+
 
     public GroupHelper getGroupHelper() {
         return navigationHelper.groupHelper;
     }
 
+    public EntryHelper getEntryHelper() {
+        return navigationHelper.entryHelper;
+    }
+
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
+    }
+
+    public void stop() {
+        wd.quit();
     }
 }
