@@ -2,8 +2,8 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.EntryData;
 
@@ -15,7 +15,7 @@ public class EntryHelper extends HelperBase {
     public boolean acceptNextAlert = true;
     public StringBuffer verificationErrors = new StringBuffer();
 
-    public EntryHelper(FirefoxDriver wd) {
+    public EntryHelper(WebDriver wd) {
         super(wd);
     }
 
