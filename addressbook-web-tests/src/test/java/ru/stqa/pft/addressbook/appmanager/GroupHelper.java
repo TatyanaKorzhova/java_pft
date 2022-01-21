@@ -54,6 +54,7 @@ public class GroupHelper extends HelperBase{
        returnToGroupPage();
        // logoutPage();
     }
+
     private boolean isElementPresent(By by) {
         try {
             wd.findElement(by);

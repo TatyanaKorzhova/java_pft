@@ -5,9 +5,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class NavigationHelper extends HelperBase{
-   // public EntryHelper gotoHomePage;
-    //protected Homepage returnToHomePage;
+public class NavigationHelper extends HelperBase {
     protected GroupHelper groupHelper;
     protected EntryHelper entryHelper;
 
@@ -21,8 +19,9 @@ public class NavigationHelper extends HelperBase{
                 && isElementPresent(By.name("new"))) {
             return;
         }
-       click(By.linkText("groups"));
+        click(By.linkText("groups"));
     }
+
     private boolean isElementPresent(By by) {
         try {
             wd.findElement(by);
@@ -31,13 +30,25 @@ public class NavigationHelper extends HelperBase{
             return false;
         }
     }
+
     public void gotoEntryPage() {
-        click(By.linkText("add new"));
+        click(By.linkText("home"));
     }
-    public void gotoHomePage() {
-        if (isElementPresent(By.id("maintable"))) {
+
+    public void gotoEditEntryPage() {
+        // click(By.linkText("home"));
+        if (isElementPresent(By.tagName("h1"))
+                && wd.findElement(By.tagName("h1")).getText().equals("Edit / add address book entry")) {
             return;
         }
+        // click(By.linkText("groups"));
+    }
+
+    public void gotoAddEntryPage() {
+        click(By.linkText("add new"));
+    }
+
+    public void gotoHomePage() {
         click(By.linkText("home"));
     }
 }

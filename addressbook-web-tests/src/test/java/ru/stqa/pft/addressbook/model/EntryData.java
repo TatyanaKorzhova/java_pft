@@ -1,6 +1,6 @@
 package ru.stqa.pft.addressbook.model;
 
-public class EntryData{
+public class EntryData {
     private final String firstname;
     private final String middlename;
     private final String lastname;
@@ -55,29 +55,103 @@ public class EntryData{
         this.notes = notes;
     }
 
-    public String getFirstname() {return firstname;}
-    public String getMiddlename() {return middlename;}
-    public String getLastname() {return lastname;}
-    public String getNickname() {return nickname;}
-    public String getTitle() {return title;}
-    public String getCompany() {return company;}
-    public String getAddress() {return address;}
-    public String getHome() {return home;}
-    public String getMobile() {return mobile;}
-    public String getWork() {return work;}
-    public String getFax() {return fax;}
-    public String getEmail() {return email;}
-    public String getEmail2() {return email2;}
-    public String getEmail3() {return email3;}
-    public String getHomepage() {return homepage;}
-    public String getBday() {return bday;}
-    public String getBmonth() {return bmonth;}
-    public String getByear() {return byear;}
-    public String getAday() {return aday;}
-    public String getAmonth() {return amonth;}
-    public String getAyear() {return ayear;}
-    public String getNew_group() {return new_group;}
-    public String getAddress2() {return address2;}
-    public String getPhone2() {return phone2;}
-    public String getNotes() {return notes;}
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getMiddlename() {
+        return middlename;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getHome() {
+        return home;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public String getWork() {
+        return work;
+    }
+
+    public String getFax() {
+        return fax;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getEmail2() {
+        return email2;
+    }
+
+    public String getEmail3() {
+        return email3;
+    }
+
+    public String getHomepage() {
+        return homepage;
+    }
+
+    public String getBday() {
+        return bday;
+    }
+
+    public String getBmonth() {
+        return bmonth;
+    }
+
+    public String getByear() {
+        return byear;
+    }
+
+    public String getAday() {
+        return aday;
+    }
+
+    public String getAmonth() {
+        return amonth;
+    }
+
+    public String getAyear() {
+        return ayear;
+    }
+
+    public String getNew_group() {
+        return new_group;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public String getPhone2() {
+        return phone2;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
 }

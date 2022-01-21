@@ -7,8 +7,8 @@ public class EntryCreationTests extends TestBase {
 
     @Test
     public void testEntryCreation() {
-        app.getNavigationHelper().gotoEntryPage();
-        app.getEntryHelper().fillEntryForm(new EntryData("test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "10", "January", "2022", "12", "January", "2022", "test1", "test3", "test3", "test3"));
+        app.getNavigationHelper().gotoAddEntryPage();
+        app.getEntryHelper().fillEntryForm(new EntryData("test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "10", "January", "2022", "12", "January", "2022", "test1", "test3", "test3", "test3"), "create");
         app.getEntryHelper().submitEntryCreation();
         app.getEntryHelper().returnToHomePage();
     }
