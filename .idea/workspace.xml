@@ -4,106 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec9e45c6-1863-4268-8f71-5e6af106631b" name="Changes" comment="Code optimization finalization of tests">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/appmanager/ApplicationManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/appmanager/EntryHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/appmanager/GroupHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/appmanager/HelperBase.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/appmanager/NavigationHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/appmanager/SessionHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/model/EntryData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/model/GroupData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/tests/EntryCreationTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/tests/EntryDeletionTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/tests/EntryModificationTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/tests/GroupCreationTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/tests/GroupDeletionTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/tests/GroupModificationTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/tests/TestBase.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/reports/tests/test/classes/ru.stqa.pft.addressbook.tests.EntryModificationTests.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/reports/tests/test/css/base-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/reports/tests/test/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/reports/tests/test/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/reports/tests/test/js/report.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/reports/tests/test/packages/ru.stqa.pft.addressbook.tests.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/test-results/test/TEST-ru.stqa.pft.addressbook.tests.EntryModificationTests.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/build/tmp/test/jar_extract_497667958877320910_tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/ApplicationManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/EntryHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/GroupHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/HelperBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/NavigationHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/SessionHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/EntryData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/GroupData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/EntryCreationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/EntryDeletionTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/EntryModificationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupCreationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupDeletionTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupModificationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/TestBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java_pft.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/classes/java/main/ru/stqa/pft/sandbox/Equality.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/classes/java/main/ru/stqa/pft/sandbox/Equation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/classes/java/main/ru/stqa/pft/sandbox/MyFirstProgram.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/classes/java/main/ru/stqa/pft/sandbox/Rectangle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/classes/java/main/ru/stqa/pft/sandbox/Square.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/classes/java/test/ru/stqa/pft/sandbox/EquationTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/classes/java/test/ru/stqa/pft/sandbox/SquareTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/distributions/sandbox.tar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/distributions/sandbox.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/libs/sandbox.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/reports/tests/test/classes/ru.stqa.pft.sandbox.EquationTests.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/reports/tests/test/css/base-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/reports/tests/test/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/reports/tests/test/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/reports/tests/test/js/report.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/reports/tests/test/packages/ru.stqa.pft.sandbox.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/scripts/sandbox" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/scripts/sandbox.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/test-results/test/TEST-ru.stqa.pft.sandbox.EquationTests.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/pft/sandbox/Equality.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/pft/sandbox/Equation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/pft/sandbox/MyFirstProgram.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/pft/sandbox/Rectangle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/pft/sandbox/Square.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/src/test/java/ru/stqa/pft/sandbox/EquationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/src/test/java/ru/stqa/pft/sandbox/SquareTests.java" afterDir="false" />
+    <list default="true" id="ec9e45c6-1863-4268-8f71-5e6af106631b" name="Changes" comment="Code_optimization_finalization_of_tests">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/EntryHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/EntryHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/EntryCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/EntryCreationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/EntryModificationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/EntryModificationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="module" />
+    </option>
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$/addressbook-web-tests">
@@ -124,17 +40,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="sandbox" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="sandbox" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -317,6 +223,14 @@
       <option name="presentableId" value="Default" />
       <updated>1641412655779</updated>
     </task>
+    <task id="LOCAL-00001" summary="Code_optimization_finalization_of_tests">
+      <created>1642772030939</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1642772030939</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -332,13 +246,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Code optimization finalization of tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code optimization finalization of tests" />
+    <MESSAGE value="Code_optimization_finalization_of_tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code_optimization_finalization_of_tests" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
       <configuration name="GradleRunConfiguration">
         <watch expression=" wd.findElement(By.xpath(&quot;//a[@href='edit.php?id=&quot;+id+&quot;']/img[@alt='Edit']&quot;)).getAttribute(&quot;alt&quot;)" language="JAVA" />
         <watch expression="wd.findElement(By.name(&quot;new_group&quot;))" />
+        <watch expression="wd.findElements(By.name(&quot;new_group&quot;)).size() &gt; 0 " />
       </configuration>
     </watches-manager>
   </component>

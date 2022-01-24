@@ -4,7 +4,9 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.EntryData;
 
+import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertTrue;
 
@@ -16,7 +18,7 @@ public class EntryHelper extends HelperBase {
         super(wd);
     }
 
-    public void fillEntryForm(EntryData entryData, String option) {
+    public void fillEntryForm(EntryData entryData/*, String option*/) {
         type(By.name("firstname"), entryData.getFirstname());
         type(By.name("middlename"), entryData.getMiddlename());
         type(By.name("lastname"), entryData.getLastname());
@@ -51,11 +53,19 @@ public class EntryHelper extends HelperBase {
         wd.findElement(By.name("ayear")).clear();
         wd.findElement(By.name("ayear")).sendKeys(entryData.getAyear());
 
-        if (option.equals("create")) {
+        wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+
+        if (wd.findElements(By.name("//select[@name=new_group]")).size() > 0) {
             wd.findElement(By.name("new_group")).click();
             new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(entryData.getNew_group());
             wd.findElement(By.xpath("//div[@id='content']/form/select[5]/option[2]")).click();
         }
+        
+//        if (option.equals("create")) {
+//            wd.findElement(By.name("new_group")).click();
+//            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(entryData.getNew_group());
+//            wd.findElement(By.xpath("//div[@id='content']/form/select[5]/option[2]")).click();
+//        }
         type(By.name("address2"), entryData.getAddress2());
         type(By.name("phone2"), entryData.getPhone2());
         type(By.name("notes"), entryData.getNotes());
@@ -124,7 +134,7 @@ public class EntryHelper extends HelperBase {
     }
 
     public void createEntry(EntryData entry) {
-        fillEntryForm(entry, "create");
+        fillEntryForm(entry/*, "create"*/);
         submitEntryCreation();
         returnToEntryPage();
 

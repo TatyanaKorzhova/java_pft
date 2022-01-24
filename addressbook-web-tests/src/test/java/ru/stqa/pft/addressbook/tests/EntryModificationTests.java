@@ -12,7 +12,7 @@ public class EntryModificationTests extends TestBase {
     }
         app.getNavigationHelper().gotoHomePage();
         app.getEntryHelper().selectEntry();
-        app.getEntryHelper().fillEntryForm(new EntryData("test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "10", "May", "2022", "12", "January", "2022", "test1", "test3", "test3", "test3"), "edit");
+        app.getEntryHelper().fillEntryForm(new EntryData("test355", "test35", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "10", "May", "2022", "12", "January", "2022", "test1", "test3", "test3", "test3")/*, "edit"*/);
         app.getEntryHelper().submitEntryModification();
         app.getEntryHelper().returnToHomePage();
     }
