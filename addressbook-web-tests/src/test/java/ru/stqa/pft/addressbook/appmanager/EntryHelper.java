@@ -60,7 +60,8 @@ public class EntryHelper extends HelperBase {
             new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(entryData.getNew_group());
             wd.findElement(By.xpath("//div[@id='content']/form/select[5]/option[2]")).click();
         }
-        
+
+
 //        if (option.equals("create")) {
 //            wd.findElement(By.name("new_group")).click();
 //            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(entryData.getNew_group());
