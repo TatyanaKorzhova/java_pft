@@ -23,8 +23,8 @@ public class EntryHelper extends HelperBase {
         type(By.name("middlename"), entryData.getMiddlename());
         type(By.name("lastname"), entryData.getLastname());
         type(By.name("nickname"), entryData.getNickname());
-        type(By.name("title"), entryData.getTitle());
         type(By.name("company"), entryData.getCompany());
+        type(By.name("title"), entryData.getTitle());
         type(By.name("address"), entryData.getAddress());
         type(By.name("home"), entryData.getHome());
         type(By.name("mobile"), entryData.getMobile());
