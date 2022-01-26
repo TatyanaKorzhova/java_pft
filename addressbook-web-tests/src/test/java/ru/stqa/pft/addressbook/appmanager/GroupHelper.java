@@ -1,14 +1,13 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.testng.Assert.assertTrue;
 
 public class GroupHelper extends HelperBase{
 
@@ -52,7 +51,7 @@ public class GroupHelper extends HelperBase{
 
     public void selectGroup(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
-      click(By.name("selected[]"));
+      //click(By.name("selected[]"));
     }
 
     public void initGroupModification() {
@@ -87,4 +86,16 @@ public class GroupHelper extends HelperBase{
     public int getGroupCount() {
          return wd.findElements(By.name("selected[]")).size();
     }
+//
+//    public void submitGrouppDeletion() {
+//
+//        List<WebElement> list = wd.findElements(By.xpath("//input[@type='checkbox']"));
+//        if (list.size() > 0) {
+//            list.get(0).click();
+//            wd.findElement(By.xpath("//input[@value='Delete']")).click();
+//            //assertTrue(EntryHelper.closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
+//        }
+//        wd.findElement(By.linkText("Logout")).click();
+//
+//    }
 }

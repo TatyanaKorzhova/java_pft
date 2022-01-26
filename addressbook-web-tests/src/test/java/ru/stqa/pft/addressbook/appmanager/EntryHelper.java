@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertTrue;
 
 public class EntryHelper extends HelperBase {
-    public boolean acceptNextAlert = true;
+    public static boolean acceptNextAlert = true;
     public StringBuffer verificationErrors = new StringBuffer();
 
     public EntryHelper(WebDriver wd) {
@@ -92,7 +92,7 @@ public class EntryHelper extends HelperBase {
         wd.findElement(By.linkText("Logout")).click();
     }
 
-    public String closeAlertAndGetItsText() {
+    public static String closeAlertAndGetItsText() {
         try {
             Alert alert = wd.switchTo().alert();
             String alertText = alert.getText();
