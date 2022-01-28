@@ -1,6 +1,9 @@
 package ru.stqa.pft.addressbook.model;
 
+import java.util.Objects;
+
 public class EntryData {
+    private int id;
     private final String firstname;
     private final String middlename;
     private final String lastname;
@@ -28,6 +31,36 @@ public class EntryData {
     private final String notes;
 
     public EntryData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String bday, String bmonth, String byear, String aday, String amonth, String ayear, String new_group, String address2, String phone2, String notes) {
+        this.id = Integer.MAX_VALUE;
+        this.firstname = firstname;
+        this.middlename = middlename;
+        this.lastname = lastname;
+        this.nickname = nickname;
+        this.title = title;
+        this.company = company;
+        this.address = address;
+        this.home = home;
+        this.mobile = mobile;
+        this.work = work;
+        this.fax = fax;
+        this.email = email;
+        this.email2 = email2;
+        this.email3 = email3;
+        this.homepage = homepage;
+        this.bday = bday;
+        this.bmonth = bmonth;
+        this.byear = byear;
+        this.aday = aday;
+        this.amonth = amonth;
+        this.ayear = ayear;
+        this.new_group = new_group;
+        this.address2 = address2;
+        this.phone2 = phone2;
+        this.notes = notes;
+    }
+
+    public EntryData(int id, String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String bday, String bmonth, String byear, String aday, String amonth, String ayear, String new_group, String address2, String phone2, String notes) {
+        this.id = id;
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
@@ -57,6 +90,19 @@ public class EntryData {
 
     public String getFirstname() {
         return firstname;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EntryData entryData = (EntryData) o;
+        return Objects.equals(firstname, entryData.firstname) && Objects.equals(lastname, entryData.lastname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstname, lastname);
     }
 
     public String getMiddlename() {
@@ -153,5 +199,25 @@ public class EntryData {
 
     public String getNotes() {
         return notes;
+    }
+
+//    public void setId(int id) {
+//        this.id = id;
+//    }
+
+//    public int getId() {
+//        return id;
+//    }
+
+    @Override
+    public String toString() {
+        return "EntryData{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                '}';
+    }
+
+    public int getId() {
+        return id;
     }
 }

@@ -3,8 +3,11 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.EntryData;
+import ru.stqa.pft.addressbook.model.GroupData;
 
+import java.security.KeyStore;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -12,7 +15,21 @@ import static org.testng.Assert.assertTrue;
 
 public class EntryHelper extends HelperBase {
     public static boolean acceptNextAlert = true;
-    public StringBuffer verificationErrors = new StringBuffer();
+    //public StringBuffer verificationErrors = new StringBuffer();
+
+    public List<EntryData> getEntryList() {
+        List<EntryData> entrys = new ArrayList<EntryData>();
+        WebElement element = wd.findElement(By.xpath("//*[@id='maintable']"));
+        int count = (wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr")).size());
+        for (int i = 2; i <= count; i++) {
+            List<WebElement> elements = wd.findElements(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 2 or position() = 3]"));
+            String name = element.getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            EntryData entry = new EntryData(id, "lastname", "firstname", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+            entrys.add(entry);
+        }
+        return entrys;
+    }
 
     public EntryHelper(WebDriver wd) {
         super(wd);
@@ -23,8 +40,8 @@ public class EntryHelper extends HelperBase {
         type(By.name("middlename"), entryData.getMiddlename());
         type(By.name("lastname"), entryData.getLastname());
         type(By.name("nickname"), entryData.getNickname());
-        type(By.name("company"), entryData.getCompany());
         type(By.name("title"), entryData.getTitle());
+        type(By.name("company"), entryData.getCompany());
         type(By.name("address"), entryData.getAddress());
         type(By.name("home"), entryData.getHome());
         type(By.name("mobile"), entryData.getMobile());
@@ -120,14 +137,16 @@ public class EntryHelper extends HelperBase {
     }
 
     public void deleteSelectedEntry() {
-        click(By.name("//input[@value='Delete']"));
+        //click(By.name("//input[@value='Delete']"));
+        //click(By.name("delete"));
+        wd.findElement(By.xpath("//input[@value='Delete']")).click();
+        assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
     }
 
     public void selectEntry() {
 
         List<WebElement> list = wd.findElements(By.xpath("//input[@type='checkbox']"));
         if (list.size() > 0) {
-
             String id = list.get(0).getAttribute("id");
             wd.findElement(By.xpath("//a[@href='edit.php?id=" + id + "']/img[@alt='Edit']")).click();
         }
@@ -152,6 +171,15 @@ public class EntryHelper extends HelperBase {
 
     public boolean isThereAEntry() {
         return isElementPresent(By.name("selected[]"));
+    }
+
+
+    public int getEntryCount() {
+        return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public void selectEntrys(int index) {
+        wd.findElements(By.name("selected[]")).get(index).click();
     }
 
 }

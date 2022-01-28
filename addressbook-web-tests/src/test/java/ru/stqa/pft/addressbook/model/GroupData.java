@@ -7,13 +7,14 @@ public class GroupData {
     private final String name;
     private final String header;
     private final String footer;
-    
+
     public GroupData(String name, String header, String footer) {
         this.id = Integer.MAX_VALUE;
         this.name = name;
         this.header = header;
         this.footer = footer;
     }
+
     public GroupData(int id, String name, String header, String footer) {
         this.id = id;
         this.name = name;
@@ -33,9 +34,9 @@ public class GroupData {
                 '}';
     }
 
-    public int getId() {
-        return id;
-    }
+//    public int getId() {
+//        return id;
+//    }
 
     public String getName() {
         return name;
@@ -61,5 +62,9 @@ public class GroupData {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    public int getId() {
+        return id;
     }
 }
