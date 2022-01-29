@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
-
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
@@ -43,15 +42,15 @@ public class ApplicationManager {
         wd.findElement(By.linkText("Logout")).click();
     }
 
-    public GroupHelper getGroupHelper() {
+    public GroupHelper group() {
         return navigationHelper.groupHelper;
     }
 
-    public EntryHelper getEntryHelper() {
+    public EntryHelper entry() {
         return navigationHelper.entryHelper;
     }
 
-    public NavigationHelper getNavigationHelper() {
+    public NavigationHelper goTo() {
         return navigationHelper;
     }
 

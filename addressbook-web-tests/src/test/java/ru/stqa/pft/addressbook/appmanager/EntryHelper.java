@@ -3,22 +3,16 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.EntryData;
-import ru.stqa.pft.addressbook.model.GroupData;
-
-import javax.lang.model.element.Name;
-import java.security.KeyStore;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import static org.testng.Assert.assertTrue;
 
 public class EntryHelper extends HelperBase {
     public static boolean acceptNextAlert = true;
     //public StringBuffer verificationErrors = new StringBuffer();
 
-    public List<EntryData> getEntryList() {
+    public List<EntryData> List() {
         List<EntryData> entries = new ArrayList<EntryData>();
         WebElement element = wd.findElement(By.xpath("//*[@id='maintable']"));
         int count = (wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr")).size());
