@@ -5,6 +5,7 @@ import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.EntryData;
 import ru.stqa.pft.addressbook.model.GroupData;
 
+import javax.lang.model.element.Name;
 import java.security.KeyStore;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -18,17 +19,18 @@ public class EntryHelper extends HelperBase {
     //public StringBuffer verificationErrors = new StringBuffer();
 
     public List<EntryData> getEntryList() {
-        List<EntryData> entrys = new ArrayList<EntryData>();
+        List<EntryData> entries = new ArrayList<EntryData>();
         WebElement element = wd.findElement(By.xpath("//*[@id='maintable']"));
         int count = (wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr")).size());
+        //List<WebElement> elements = new ArrayList<>();
         for (int i = 2; i <= count; i++) {
-            List<WebElement> elements = wd.findElements(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 2 or position() = 3]"));
-            String name = element.getText();
+            String lastname = (wd.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 2]"))).getText();
+            String firstname = (wd.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 3]"))).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            EntryData entry = new EntryData(id, "lastname", "firstname", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-            entrys.add(entry);
+            EntryData entry = new EntryData(id, firstname, null, lastname, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+            entries.add(entry);
         }
-        return entrys;
+        return entries;
     }
 
     public EntryHelper(WebDriver wd) {

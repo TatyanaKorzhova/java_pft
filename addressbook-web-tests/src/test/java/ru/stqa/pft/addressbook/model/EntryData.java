@@ -92,19 +92,6 @@ public class EntryData {
         return firstname;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        EntryData entryData = (EntryData) o;
-        return Objects.equals(firstname, entryData.firstname) && Objects.equals(lastname, entryData.lastname);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstname, lastname);
-    }
-
     public String getMiddlename() {
         return middlename;
     }
@@ -201,23 +188,33 @@ public class EntryData {
         return notes;
     }
 
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-
-//    public int getId() {
-//        return id;
-//    }
-
     @Override
     public String toString() {
         return "EntryData{" +
-                "firstname='" + firstname + '\'' +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EntryData entryData = (EntryData) o;
+        return id == entryData.id && Objects.equals(firstname, entryData.firstname) && Objects.equals(lastname, entryData.lastname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstname, lastname);
+    }
+
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
