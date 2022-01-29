@@ -7,6 +7,7 @@ import ru.stqa.pft.addressbook.model.GroupData;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class GroupCreationTests extends TestBase {
 
@@ -14,16 +15,25 @@ public class GroupCreationTests extends TestBase {
     public void testGroupCreation() {
 
         app.goTo().groupPage();
-        List<GroupData> before = app.group().list();
+        Set<GroupData> before = app.group().all();
         GroupData group = new GroupData().withName("test7");
         app.group().create(group);
-        List<GroupData> after = app.group().list();
+        Set<GroupData> after = app.group().all();
         //app.logoutPage();
         Assert.assertEquals(after.size(), before.size() + 1);
 
-        group.withId(after.stream().max((Comparator<GroupData>) (o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
+        group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
+        //присваиваем группе id, берем коллекцию с известными id, превращаем ее в поток,
+        //mapToInt в качестве параметра принимает описание того, как объект проеобр. в число
+        //в map мы должны передать анонимную ф-ю,
+        // которая будет послед. применятся ко всем элементов потока и каждый из них будет преобр. в число
+        //в результате из потока объектов GroupData мы получаем поток целых чисел.
+        //анонимная функция в качестве парамета приимает группу,
+        //а в качестве результата выдает id этой группы(преоб. объект в число)
+        //когда получили в итоге поток целых чисел, вызываем метод max,
+        // и преобразуем результат в обычное целое число
         before.add(group);
-        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+        Assert.assertEquals(before, after);
 
     }
 
