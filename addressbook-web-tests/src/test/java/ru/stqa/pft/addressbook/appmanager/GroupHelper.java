@@ -4,10 +4,7 @@ import org.openqa.selenium.*;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
-import javax.swing.*;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class GroupHelper extends HelperBase {
 
@@ -97,7 +94,7 @@ public class GroupHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public int getGroupCount() {
+    public int сount() {
         return wd.findElements(By.name("selected[]")).size();
     }
 

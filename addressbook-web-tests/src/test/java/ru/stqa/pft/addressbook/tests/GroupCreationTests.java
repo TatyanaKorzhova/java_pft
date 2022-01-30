@@ -16,9 +16,9 @@ public class GroupCreationTests extends TestBase {
         Groups before = app.group().all();
         GroupData group = new GroupData().withName("test7");
         app.group().create(group);
+        assertThat(app.group().сount(), equalTo(before.size() + 1));
         Groups after = app.group().all();
         //app.logoutPage();
-        assertThat(after.size(), equalTo(before.size() + 1));
 
         //присваиваем группе id, берем коллекцию с известными id, превращаем ее в поток,
         //mapToInt в качестве параметра принимает описание того, как объект проеобр. в число
@@ -31,6 +31,17 @@ public class GroupCreationTests extends TestBase {
         // и преобразуем результат в обычное целое число
         assertThat(after, equalTo(
                 before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+    }
+
+    @Test
+    public void testBadGroupCreation() { //Группа с ' не должна создаваться
+        app.goTo().groupPage();
+        Groups before = app.group().all();
+        GroupData group = new GroupData().withName("test7'");
+        app.group().create(group);
+        assertThat(app.group().сount(), equalTo(before.size()));
+        Groups after = app.group().all();
+        assertThat(after, equalTo(before));
     }
 
 }
