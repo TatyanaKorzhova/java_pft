@@ -198,44 +198,44 @@ public class EntryData {
 
 
 ////
-    public String getWorkPhone() {
-        return workPhone;
-    }
-    public EntryData withWorkPhone(String workPhone){
-        this.workPhone() = workPhone;
-        return this;
-    }
-
-    public String getMobilePhone() {
-        return mobilePhone;
-    }
-
-    public EntryData withMobilePhone(String mobilePhone){
-        this.mobilePhone() = mobilePhone;
-        return this;
-    }
-
-    public String getHomePhone() {
-        return homePhone;
-    }
-
-    public EntryData withHomePhone(String homePhone){
-        this.homePhone() = homePhone;
-        return this;
-    }
-    ////
-    public String getNotes() {
-        return notes;
-    }
-    public String getNotes() {
-        return notes;
-    }
-    public String getNotes() {
-        return notes;
-    }
-    public String getNotes() {
-        return notes;
-    }
+//    public String getWorkPhone() {
+//        return workPhone;
+//    }
+//    public EntryData withWorkPhone(String workPhone){
+//        this.workPhone() = workPhone;
+//        return this;
+//    }
+//
+//    public String getMobilePhone() {
+//        return mobilePhone;
+//    }
+//
+//    public EntryData withMobilePhone(String mobilePhone){
+//        this.mobilePhone() = mobilePhone;
+//        return this;
+//    }
+//
+//    public String getHomePhone() {
+//        return homePhone;
+//    }
+//
+//    public EntryData withHomePhone(String homePhone){
+//        this.homePhone() = homePhone;
+//        return this;
+//    }
+//    ////
+//    public String getNotes() {
+//        return notes;
+//    }
+//    public String getNotes() {
+//        return notes;
+//    }
+//    public String getNotes() {
+//        return notes;
+//    }
+//    public String getNotes() {
+//        return notes;
+//    }
 
     @Override
     public String toString() {
@@ -271,18 +271,18 @@ public class EntryData {
 //        this.lastname = lastname;
 //        return this;
 //    }
-    public EntryData withHomePhone(String home) {
-        this.home = home;
-        return this;
-    }
-    public EntryData withMobilePhone(String mobile) {
-        this.mobile = mobile;
-        return this;
-    }
-    public EntryData withWorkPhone(String work) {
-        this.work = work;
-        return this;
-    }
+//    public EntryData withHomePhone(String home) {
+//        this.home = home;
+//        return this;
+//    }
+//    public EntryData withMobilePhone(String mobile) {
+//        this.mobile = mobile;
+//        return this;
+//    }
+//    public EntryData withWorkPhone(String work) {
+//        this.work = work;
+//        return this;
+//    }
 
     public int withId(int id) {
         return id;

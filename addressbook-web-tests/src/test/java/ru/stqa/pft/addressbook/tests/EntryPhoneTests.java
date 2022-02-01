@@ -5,10 +5,10 @@ import ru.stqa.pft.addressbook.model.EntryData;
 
 public class EntryPhoneTests extends TestBase {
 
-    @Test
+    @Test (enabled = true)
     public void testEntryPhones(){
         app.goTo().gotoHomePage();
-        EntryData entry = app.entry().all().iterator().next();
-        EntryData entryIntoFromEditForm = app.entry().intoFromEditForm(entry);
+       // EntryData entry = app.entry().all().iterator().next();
+        //EntryData entryIntoFromEditForm = app.entry().intoFromEditForm(entry);
     }
 }

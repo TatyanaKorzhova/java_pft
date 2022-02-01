@@ -10,22 +10,30 @@ import static org.testng.Assert.assertEquals;
 
 public class EntryDeletionTests extends TestBase {
 
+    @BeforeMethod
+    public void ensurePreconditions() {
+        app.goTo().entryPage();
+        if (app.entry().list().size() == 0) {
+            app.entry().create(new EntryData("firstname", null, null, null, "title", "company", "address", "home", "mobile", "work", "fax", "email", "email2", "email3", "homepage", "bday", "bmonth", "byear", "aday", "amonth", "ayear", "new_group", "address2", "phone2", "notes"));
+        }
+    }
+
     @Test
     public void testEntryDeletion() {
         app.goTo().entryPage();
         //int before = app.getEntryHelper().getEntryCount();
-        List<EntryData> before = app.entry().List();
-        app.entry().selectEntrys(before.size() - 1);
-        //app.getEntryHelper().submitEntryDeletion();
-        app.entry().deleteSelectedEntry();
-        app.goTo().entryPage();
+        List<EntryData> before = app.entry().list();
+        int index = before.size() - 1;
+        app.entry().delete(index);
         //int after = app.getEntryHelper().getEntryCount();
-        List<EntryData> after = app.entry().List();
+        List<EntryData> after = app.entry().list();
         Assert.assertEquals(after.size(), before.size() - 1);
 
-        before.remove(before.size() - 1); //пемен. before теперь ссылается на старый список в котором удален 1 элемент
+        before.remove(index); //пемен. before теперь ссылается на старый список в котором удален 1 элемент
         assertEquals(before, after);
 
 
     }
+
+
 }

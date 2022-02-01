@@ -12,7 +12,7 @@ public class EntryHelper extends HelperBase {
     public static boolean acceptNextAlert = true;
     //public StringBuffer verificationErrors = new StringBuffer();
 
-    public List<EntryData> List() {
+    public List<EntryData> list() {
         List<EntryData> entries = new ArrayList<EntryData>();
         WebElement element = wd.findElement(By.xpath("//*[@id='maintable']"));
         int count = (wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr")).size());
@@ -149,11 +149,25 @@ public class EntryHelper extends HelperBase {
 
     }
 
-    public void createEntry(EntryData entry) {
+    public void create(EntryData entry) {
         fillEntryForm(entry/*, "create"*/);
         submitEntryCreation();
         returnToEntryPage();
 
+    }
+
+    public void delete(int index) {
+        selectEntrys(index);
+        //app.getEntryHelper().submitEntryDeletion();
+        deleteSelectedEntry();
+        returnToEntryPage();
+    }
+
+    public void modify(List<EntryData> before) {
+        selectEntry(/*before.size()-1*/);
+        fillEntryForm(new EntryData(before.get(before.size() - 1).getId(), "test355", "test35", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "10", "May", "2022", "12", "January", "2022", "test1", "test3", "test3", "test3")/*, "edit"*/);
+        submitEntryModification();
+        returnToHomePage();
     }
 
     private boolean isElementPresent(By by) {
@@ -181,7 +195,7 @@ public class EntryHelper extends HelperBase {
 //    public Iterable<Object> all() {
 //
 //    }
-
+/*
     public EntryData intoFromEditForm(EntryData entry) {
         initEntryModifacationById(entry.getId());
         String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
@@ -203,5 +217,5 @@ public class EntryHelper extends HelperBase {
 
         wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s]", id))).click();
     }
-
+*/
 }
