@@ -16,7 +16,7 @@ public class EntryCreationTests extends TestBase {
         app.goTo().entryPage();
         List<EntryData> before = app.entry().list();
         app.goTo().gotoAddEntryPage();
-        EntryData entry = new EntryData("test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "10", "January", "2022", "12", "January", "2022", "test1", "test3", "test3", "test3")/*, "create"*/;
+        EntryData entry = new EntryData().withFirstname("firstname1");
         app.entry().create(entry);
         List<EntryData> after = app.entry().list();
         // int after = app.getEntryHelper().getEntryCount();
@@ -27,5 +27,5 @@ public class EntryCreationTests extends TestBase {
         Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
 
     }
-    
+
 }

@@ -14,7 +14,7 @@ public class EntryDeletionTests extends TestBase {
     public void ensurePreconditions() {
         app.goTo().entryPage();
         if (app.entry().list().size() == 0) {
-            app.entry().create(new EntryData("firstname", null, null, null, "title", "company", "address", "home", "mobile", "work", "fax", "email", "email2", "email3", "homepage", "bday", "bmonth", "byear", "aday", "amonth", "ayear", "new_group", "address2", "phone2", "notes"));
+            app.entry().create(new EntryData().withFirstname("firstname2"));
         }
     }
 

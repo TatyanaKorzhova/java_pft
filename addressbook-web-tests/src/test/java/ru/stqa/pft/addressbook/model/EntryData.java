@@ -3,89 +3,168 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class EntryData {
-    private int id;
-    private final String firstname;
-    private final String middlename;
-    private final String lastname;
-    private final String nickname;
-    private final String title;
-    private final String company;
-    private final String address;
-    private final String home;
-    private final String mobile;
-    private final String work;
-    private final String fax;
-    private final String email;
-    private final String email2;
-    private final String email3;
-    private final String homepage;
-    private final String bday;
-    private final String bmonth;
-    private final String byear;
-    private final String aday;
-    private final String amonth;
-    private final String ayear;
-    private final String new_group;
-    private final String address2;
-    private final String phone2;
-    private final String notes;
+    private int id = Integer.MAX_VALUE;
+    private String firstname;
+    private String middlename;
+    private String lastname;
+    private String nickname;
+    private String title;
+    private String company;
+    private String address;
+    private String home;
+    private String mobile;
+    private String work;
+    private String fax;
+    private String email;
+    private String email2;
+    private String email3;
+    private String homepage;
+    private String bday;
+    private String bmonth;
+    private String byear;
+    private String aday;
+    private String amonth;
+    private String ayear;
+    private String new_group;
+    private String address2;
+    private String phone2;
+    private String notes;
 
-    public EntryData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String bday, String bmonth, String byear, String aday, String amonth, String ayear, String new_group, String address2, String phone2, String notes) {
-        this.id = Integer.MAX_VALUE;
-        this.firstname = firstname;
-        this.middlename = middlename;
-        this.lastname = lastname;
-        this.nickname = nickname;
-        this.title = title;
-        this.company = company;
-        this.address = address;
-        this.home = home;
-        this.mobile = mobile;
-        this.work = work;
-        this.fax = fax;
-        this.email = email;
-        this.email2 = email2;
-        this.email3 = email3;
-        this.homepage = homepage;
-        this.bday = bday;
-        this.bmonth = bmonth;
-        this.byear = byear;
-        this.aday = aday;
-        this.amonth = amonth;
-        this.ayear = ayear;
-        this.new_group = new_group;
-        this.address2 = address2;
-        this.phone2 = phone2;
-        this.notes = notes;
+    public int getId() {
+        return id;
+    }
+    public EntryData withId(int id) {
+        this.id = id;
+        return this;
     }
 
-    public EntryData(int id, String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String bday, String bmonth, String byear, String aday, String amonth, String ayear, String new_group, String address2, String phone2, String notes) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public EntryData withFirstname(String firstname) {
         this.firstname = firstname;
+        return this;
+    }
+
+    public EntryData withMiddlename(String middlename) {
         this.middlename = middlename;
+        return this;
+    }
+
+    public EntryData withLastname(String lastname) {
         this.lastname = lastname;
+        return this;
+    }
+
+    public EntryData withNickname(String nickname) {
         this.nickname = nickname;
+        return this;
+    }
+
+    public EntryData withTitle(String title) {
         this.title = title;
+        return this;
+    }
+
+    public EntryData withCompany(String company) {
         this.company = company;
+        return this;
+    }
+
+    public EntryData withAddress(String address) {
         this.address = address;
+        return this;
+    }
+
+    public EntryData withHome(String home) {
         this.home = home;
+        return this;
+    }
+
+    public EntryData withMobile(String mobile) {
         this.mobile = mobile;
+        return this;
+    }
+
+    public EntryData withWork(String work) {
         this.work = work;
+        return this;
+    }
+
+    public EntryData withFax(String fax) {
         this.fax = fax;
+        return this;
+    }
+
+    public EntryData withEmail(String email) {
         this.email = email;
+        return this;
+    }
+
+    public EntryData withEmail2(String email2) {
         this.email2 = email2;
+        return this;
+    }
+
+    public EntryData withEmail3(String email3) {
         this.email3 = email3;
+        return this;
+    }
+
+    public EntryData withHomepage(String homepage) {
         this.homepage = homepage;
+        return this;
+    }
+
+    public EntryData withBday(String bday) {
         this.bday = bday;
+        return this;
+    }
+
+    public EntryData withBmonth(String bmonth) {
         this.bmonth = bmonth;
+        return this;
+    }
+
+    public EntryData withByear(String byear) {
         this.byear = byear;
+        return this;
+    }
+
+    public EntryData withAday(String aday) {
         this.aday = aday;
+        return this;
+    }
+
+    public EntryData withAmonth(String amonth) {
         this.amonth = amonth;
+        return this;
+    }
+
+    public EntryData withAyear(String ayear) {
         this.ayear = ayear;
+        return this;
+    }
+
+    public EntryData withNew_group(String new_group) {
         this.new_group = new_group;
+        return this;
+    }
+
+    public EntryData withAddress2(String address2) {
         this.address2 = address2;
+        return this;
+    }
+
+    public EntryData withPhone2(String phone2) {
         this.phone2 = phone2;
+        return this;
+    }
+
+    public EntryData withNotes(String notes) {
         this.notes = notes;
+        return this;
     }
 
 //     public EntryData(String firstname, String lastname, String home, String mobile, String work) {
@@ -196,7 +275,6 @@ public class EntryData {
         return notes;
     }
 
-
 ////
 //    public String getWorkPhone() {
 //        return workPhone;
@@ -259,14 +337,6 @@ public class EntryData {
         return Objects.hash(id, firstname, lastname);
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
 //    public EntryData withLastname(String lastname) {
 //        this.lastname = lastname;
 //        return this;
@@ -284,7 +354,4 @@ public class EntryData {
 //        return this;
 //    }
 
-    public int withId(int id) {
-        return id;
-    }
 }

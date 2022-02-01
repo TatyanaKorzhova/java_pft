@@ -21,8 +21,7 @@ public class EntryHelper extends HelperBase {
             String lastname = (wd.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 2]"))).getText();
             String firstname = (wd.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 3]"))).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            EntryData entry = new EntryData(id, firstname, null, lastname, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-            entries.add(entry);
+            entries.add(new EntryData().withId(id).withFirstname(firstname).withLastname(lastname));
         }
         return entries;
     }
