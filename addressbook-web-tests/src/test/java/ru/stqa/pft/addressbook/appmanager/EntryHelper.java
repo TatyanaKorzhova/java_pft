@@ -2,6 +2,7 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
+import ru.stqa.pft.addressbook.model.Entries;
 import ru.stqa.pft.addressbook.model.EntryData;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -28,8 +29,9 @@ public class EntryHelper extends HelperBase {
         }
         return entries;
 
-    }public Set<EntryData> all() {
-        Set<EntryData> entries = new HashSet<EntryData>() ;
+    }
+    public Entries all() {
+        Entries entries = new Entries() ;
         WebElement element = wd.findElement(By.xpath("//*[@id='maintable']"));
         int count = (wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr")).size());
         //List<WebElement> elements = new ArrayList<>();
