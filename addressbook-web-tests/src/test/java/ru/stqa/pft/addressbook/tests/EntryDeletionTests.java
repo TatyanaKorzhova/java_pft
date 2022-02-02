@@ -5,6 +5,7 @@ import org.testng.annotations.*;
 import ru.stqa.pft.addressbook.model.EntryData;
 
 import java.util.List;
+import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
 
@@ -13,7 +14,7 @@ public class EntryDeletionTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
         app.goTo().entryPage();
-        if (app.entry().list().size() == 0) {
+        if (app.entry().all().size() == 0) {
             app.entry().create(new EntryData().withFirstname("firstname2"));
         }
     }
@@ -22,14 +23,14 @@ public class EntryDeletionTests extends TestBase {
     public void testEntryDeletion() {
         app.goTo().entryPage();
         //int before = app.getEntryHelper().getEntryCount();
-        List<EntryData> before = app.entry().list();
-        int index = before.size() - 1;
-        app.entry().delete(index);
+        Set<EntryData> before = app.entry().all();
+        EntryData deletedEntry = before.iterator().next(); //next возвращает любой элемент из множества
+        app.entry().delete(deletedEntry);
         //int after = app.getEntryHelper().getEntryCount();
-        List<EntryData> after = app.entry().list();
+        Set<EntryData> after = app.entry().all();
         Assert.assertEquals(after.size(), before.size() - 1);
 
-        before.remove(index); //пемен. before теперь ссылается на старый список в котором удален 1 элемент
+        before.remove(deletedEntry); //пемен. before теперь ссылается на старый список в котором удален 1 элемент
         assertEquals(before, after);
 
 

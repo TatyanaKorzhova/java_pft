@@ -7,6 +7,7 @@ import ru.stqa.pft.addressbook.model.EntryData;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class EntryCreationTests extends TestBase {
 
@@ -14,17 +15,17 @@ public class EntryCreationTests extends TestBase {
     public void testEntryCreation() {
         //int before = app.getEntryHelper().getEntryCount();
         app.goTo().entryPage();
-        List<EntryData> before = app.entry().list();
+        Set<EntryData> before = app.entry().all();
         app.goTo().gotoAddEntryPage();
         EntryData entry = new EntryData().withFirstname("firstname1");
         app.entry().create(entry);
-        List<EntryData> after = app.entry().list();
+        Set<EntryData> after = app.entry().all();
         // int after = app.getEntryHelper().getEntryCount();
         Assert.assertEquals(after.size(), before.size() + 1);
 
-        entry.setId((after.stream().max((Comparator<EntryData>) (o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId()));
+        entry.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
         before.add(entry);
-        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+        Assert.assertEquals(before, after);
 
     }
 

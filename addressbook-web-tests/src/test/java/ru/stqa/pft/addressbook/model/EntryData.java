@@ -337,7 +337,7 @@ public class EntryData {
         return Objects.hash(id, firstname, lastname);
     }
 
-//    public EntryData withLastname(String lastname) {
+    //    public EntryData withLastname(String lastname) {
 //        this.lastname = lastname;
 //        return this;
 //    }

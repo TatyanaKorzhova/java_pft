@@ -5,7 +5,10 @@ import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.EntryData;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import static org.testng.Assert.assertTrue;
 
 public class EntryHelper extends HelperBase {
@@ -14,6 +17,19 @@ public class EntryHelper extends HelperBase {
 
     public List<EntryData> list() {
         List<EntryData> entries = new ArrayList<EntryData>();
+        WebElement element = wd.findElement(By.xpath("//*[@id='maintable']"));
+        int count = (wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr")).size());
+        //List<WebElement> elements = new ArrayList<>();
+        for (int i = 2; i <= count; i++) {
+            String lastname = (wd.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 2]"))).getText();
+            String firstname = (wd.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 3]"))).getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            entries.add(new EntryData().withId(id).withFirstname(firstname).withLastname(lastname));
+        }
+        return entries;
+
+    }public Set<EntryData> all() {
+        Set<EntryData> entries = new HashSet<EntryData>() ;
         WebElement element = wd.findElement(By.xpath("//*[@id='maintable']"));
         int count = (wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr")).size());
         //List<WebElement> elements = new ArrayList<>();
@@ -148,6 +164,10 @@ public class EntryHelper extends HelperBase {
 
     }
 
+    public void selectEntryById(int id) {
+        wd.findElement(By.cssSelector("input[value='"+ id + "']")).click();
+    }
+
     public void create(EntryData entry) {
         fillEntryForm(entry/*, "create"*/);
         submitEntryCreation();
@@ -162,9 +182,18 @@ public class EntryHelper extends HelperBase {
         returnToEntryPage();
     }
 
-    public void modify(List<EntryData> before) {
-        selectEntry(/*before.size()-1*/);
-        fillEntryForm(new EntryData(before.get(before.size() - 1).getId(), "test355", "test35", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "10", "May", "2022", "12", "January", "2022", "test1", "test3", "test3", "test3")/*, "edit"*/);
+    public void delete(EntryData entry) {
+        selectEntrys(entry.getId());
+        //app.getEntryHelper().submitEntryDeletion();
+        deleteSelectedEntry();
+        returnToEntryPage();
+    }
+
+    public void modify(EntryData entry) {
+        //selectEntry(/*before.size()-1*/);
+        selectEntryById(entry.getId());
+        //fillEntryForm(new EntryData(before.get(before.size() - 1).getId(), "test355", "test35", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "10", "May", "2022", "12", "January", "2022", "test1", "test3", "test3", "test3")/*, "edit"*/);
+        fillEntryForm(entry);
         submitEntryModification();
         returnToHomePage();
     }
@@ -190,6 +219,8 @@ public class EntryHelper extends HelperBase {
     public void selectEntrys(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
+
+
 
 //    public Iterable<Object> all() {
 //
