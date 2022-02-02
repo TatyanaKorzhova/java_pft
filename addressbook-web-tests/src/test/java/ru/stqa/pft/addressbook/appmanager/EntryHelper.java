@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.Entries;
 import ru.stqa.pft.addressbook.model.EntryData;
+
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -30,8 +31,14 @@ public class EntryHelper extends HelperBase {
         return entries;
 
     }
+
+    private Entries entryCache = null;
+
     public Entries all() {
-        Entries entries = new Entries() ;
+        if (entryCache != null) {
+            return new Entries(entryCache);
+        }
+        entryCache = new Entries();
         WebElement element = wd.findElement(By.xpath("//*[@id='maintable']"));
         int count = (wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr")).size());
         //List<WebElement> elements = new ArrayList<>();
@@ -39,9 +46,9 @@ public class EntryHelper extends HelperBase {
             String lastname = (wd.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 2]"))).getText();
             String firstname = (wd.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 3]"))).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            entries.add(new EntryData().withId(id).withFirstname(firstname).withLastname(lastname));
+            entryCache.add(new EntryData().withId(id).withFirstname(firstname).withLastname(lastname));
         }
-        return entries;
+        return new Entries(entryCache);
     }
 
     public EntryHelper(WebDriver wd) {
@@ -167,12 +174,14 @@ public class EntryHelper extends HelperBase {
     }
 
     public void selectEntryById(int id) {
-        wd.findElement(By.cssSelector("input[value='"+ id + "']")).click();
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
     }
 
     public void create(EntryData entry) {
         fillEntryForm(entry/*, "create"*/);
         submitEntryCreation();
+        entryCache = null;
+        
         returnToEntryPage();
 
     }
@@ -185,9 +194,10 @@ public class EntryHelper extends HelperBase {
     }
 
     public void delete(EntryData entry) {
-        selectEntrys(entry.getId());
+        selectEntryById(entry.getId());
         //app.getEntryHelper().submitEntryDeletion();
         deleteSelectedEntry();
+        entryCache = null;
         returnToEntryPage();
     }
 
@@ -197,6 +207,7 @@ public class EntryHelper extends HelperBase {
         //fillEntryForm(new EntryData(before.get(before.size() - 1).getId(), "test355", "test35", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "10", "May", "2022", "12", "January", "2022", "test1", "test3", "test3", "test3")/*, "edit"*/);
         fillEntryForm(entry);
         submitEntryModification();
+        entryCache = null;
         returnToHomePage();
     }
 
@@ -221,7 +232,6 @@ public class EntryHelper extends HelperBase {
     public void selectEntrys(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
-
 
 
 //    public Iterable<Object> all() {
