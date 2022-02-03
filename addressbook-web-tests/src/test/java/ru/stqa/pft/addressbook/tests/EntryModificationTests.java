@@ -34,7 +34,8 @@ public class EntryModificationTests extends TestBase {
                 .withId(modifiedEntry.getId()).withFirstname("test2").withMiddlename("test2").withLastname("test2").withNickname("test2").withTitle("test2").withCompany("test2").withAddress("test2").withHome("test2").withMobile("test2").withWork("test2").withFax("test2").withEmail("test2").withEmail2("test2").withEmail3("test2").withHomepage("test2").withBday(null).withBmonth(null).withByear(null).withAday(null).withAmonth(null).withAyear(null).withAddress2("test2").withPhone2("test2").withNotes("test2");
         app.entry().modify(entry);
         // int after = app.getEntryHelper().getEntryCount();
-        assertThat(app.entry().count(), equalTo(before.size()));
+        int beforeCount = app.entry().count();
+        assertThat(app.entry().count(), equalTo(beforeCount + 1));
         Entries after = app.entry().all();
 
         assertThat(after, equalTo(before.without(modifiedEntry).withAdded(entry)));

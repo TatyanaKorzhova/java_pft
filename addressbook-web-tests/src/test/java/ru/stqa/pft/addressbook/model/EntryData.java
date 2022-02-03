@@ -30,32 +30,6 @@ public class EntryData {
     private String notes;
     private String allPhones;
 
-//    public String getWorkPhone() {
-//        return workPhone;
-//    }
-//
-//    public EntryData withWorkPhone(String workPhone){
-//        this.workPhone() = workPhone;
-//        return this;
-//    }
-//
-//    public String getMobilePhone() {
-//        return mobilePhone;
-//    }
-//
-//    public EntryData withMobilePhone(String mobilePhone){
-//        this.mobilePhone() = mobilePhone;
-//        return this;
-//    }
-//
-//    public String getHomePhone() {
-//        return homePhone;
-//    }
-//
-//    public EntryData withHomePhone(String homePhone){
-//        this.homePhone() = homePhone;
-//        return this;
-//    }
 private int id = Integer.MAX_VALUE;
 
     public String getAllPhones() {
@@ -135,9 +109,7 @@ private int id = Integer.MAX_VALUE;
         this.address = address;
         return this;
     }
-//    public String getHome() {
-//       return home;
-//    }
+
     public String getHome() {
     return home;
 }
@@ -145,9 +117,7 @@ private int id = Integer.MAX_VALUE;
         this.home = home;
         return this;
     }
-//    public String getMobile() {
-//        return mobile;
-//    }
+
     public String getMobile() {
     return mobile;
 }
@@ -155,9 +125,7 @@ private int id = Integer.MAX_VALUE;
         this.mobile = mobile;
         return this;
     }
-//    public String getWork() {
-//        return work;
-//    }
+
     public String getWork() {
     return work;
 }

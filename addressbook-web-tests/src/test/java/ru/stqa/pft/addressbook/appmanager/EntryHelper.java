@@ -46,12 +46,15 @@ public class EntryHelper extends HelperBase {
         //List<WebElement> elements = new ArrayList<>();
         for (int i = 2; i <= count; i++) {
             String lastname = (wd.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 2]"))).getText();
+            int id = Integer.parseInt((wd.findElement(By.xpath("//table/tbody/tr[" + i + "]/td/input"))).getAttribute("value"));
             String firstname = (wd.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 3]"))).getText();
-            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+           // int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             entryCache.add(new EntryData().withId(id).withFirstname(firstname).withLastname(lastname));
         }
         return new Entries(entryCache);
     }
+
+
 
 //    public Set<EntryData> all() {
 //        Set<EntryData> entries = new HashSet<EntryData>();
@@ -83,25 +86,28 @@ public class EntryHelper extends HelperBase {
         type(By.name("email2"), entryData.getEmail2());
         type(By.name("email3"), entryData.getEmail3());
         type(By.name("homepage"), entryData.getHomepage());
-        wd.findElement(By.name("bday")).click();
-        new Select(wd.findElement(By.name("bday"))).selectByVisibleText(entryData.getBday());
-        wd.findElement(By.xpath("//option[@value='" + entryData.getBday() + "']")).click();
-        wd.findElement(By.name("bmonth")).click();
-        new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(entryData.getBmonth());
-        wd.findElement(By.xpath("//option[@value='" + entryData.getBmonth() + "']")).click();
-        wd.findElement(By.name("byear")).click();
-        wd.findElement(By.name("byear")).clear();
-        wd.findElement(By.name("byear")).sendKeys(entryData.getByear());
-        wd.findElement(By.name("aday")).click();
-        new Select(wd.findElement(By.name("aday"))).selectByVisibleText(entryData.getAday());
-        wd.findElement(By.xpath("//div[@id='content']/form/select[3]/option[14]")).click();
-        wd.findElement(By.name("amonth")).click();
-        new Select(wd.findElement(By.name("amonth"))).selectByVisibleText(entryData.getAmonth());
-        wd.findElement(By.xpath("//div[@id='content']/form/select[4]/option[2]")).click();
-        wd.findElement(By.name("ayear")).click();
-        wd.findElement(By.name("ayear")).clear();
-        wd.findElement(By.name("ayear")).sendKeys(entryData.getAyear());
-
+        if (entryData.getBday() != null && entryData.getBmonth() != null && entryData.getByear() != null) {
+            wd.findElement(By.name("bday")).click();
+            new Select(wd.findElement(By.name("bday"))).selectByVisibleText(entryData.getBday());
+            wd.findElement(By.xpath("//option[@value='" + entryData.getBday() + "']")).click();
+            wd.findElement(By.name("bmonth")).click();
+            new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(entryData.getBmonth());
+            wd.findElement(By.xpath("//option[@value='" + entryData.getBmonth() + "']")).click();
+            wd.findElement(By.name("byear")).click();
+            wd.findElement(By.name("byear")).clear();
+            wd.findElement(By.name("byear")).sendKeys(entryData.getByear());
+        }
+        if (entryData.getAday() != null && entryData.getAmonth() != null && entryData.getAyear() != null) {
+            wd.findElement(By.name("aday")).click();
+            new Select(wd.findElement(By.name("aday"))).selectByVisibleText(entryData.getAday());
+            wd.findElement(By.xpath("//div[@id='content']/form/select[3]/option[14]")).click();
+            wd.findElement(By.name("amonth")).click();
+            new Select(wd.findElement(By.name("amonth"))).selectByVisibleText(entryData.getAmonth());
+            wd.findElement(By.xpath("//div[@id='content']/form/select[4]/option[2]")).click();
+            wd.findElement(By.name("ayear")).click();
+            wd.findElement(By.name("ayear")).clear();
+            wd.findElement(By.name("ayear")).sendKeys(entryData.getAyear());
+        }
         wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
 
         if (wd.findElements(By.name("//select[@name=new_group]")).size() > 0) {
@@ -157,7 +163,7 @@ public class EntryHelper extends HelperBase {
     }
 
     public void returnToHomePage() {
-        wd.findElement(By.linkText("home page")).click();
+        wd.findElement(By.linkText("home")).click();
     }
 
     public void returnToEntryPage() {
@@ -193,8 +199,7 @@ public class EntryHelper extends HelperBase {
         fillEntryForm(entry/*, "create"*/);
         submitEntryCreation();
         entryCache = null;
-
-        returnToEntryPage();
+        returnToHomePage();
 
     }
 
@@ -210,7 +215,7 @@ public class EntryHelper extends HelperBase {
         //app.getEntryHelper().submitEntryDeletion();
         deleteSelectedEntry();
         entryCache = null;
-        returnToEntryPage();
+        returnToHomePage();
     }
 
     public void modify(EntryData entry) {
@@ -254,14 +259,15 @@ public class EntryHelper extends HelperBase {
 //
 //    }
 
-    public EntryData intoFromEditForm(EntryData entry) {
-        initEntryModifacationById(entry.getId());
-        String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+    public EntryData intoFromEditForm(EntryData entry) { //получаем телефоны из формы редактирования
+        initEntryModifacationById(entry.getId()); //выбор записи по id
+        String firstname = wd.findElement(By.name("firstname")).getAttribute("value"); // извлекаем из полей нужные значения
         String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
         String home = wd.findElement(By.name("home")).getAttribute("value");
         String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
         String work = wd.findElement(By.name("work")).getAttribute("value");
         wd.navigate().back();
+        //строим объект EntryData, в кот запо-я атрибуты полученными значениями
         return new EntryData().withId(entry.getId()).withFirstname(firstname).withLastname(lastname).withHome(home).withMobile(mobile).withWork(work);
 
     }
@@ -276,8 +282,18 @@ public class EntryHelper extends HelperBase {
         //wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
     }
 
+    public EntryData intoFromEditFormAddress(EntryData entry) { //получаем адрес из формы редактирования
+        initEntryModifacationById(entry.getId()); //выбор записи по id
+        String firstname = wd.findElement(By.name("firstname")).getAttribute("value"); // извлекаем из полей нужные значения
+        String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+        String home = wd.findElement(By.name("address")).getAttribute("value");
+        wd.navigate().back();
+        //строим объект EntryData, в кот запо-я атрибуты полученными значениями
+        return new EntryData().withId(entry.getId()).withFirstname(firstname).withLastname(lastname)/*.withAddress(address)*/;
 
-    private void initEntryModifacation1ById(int id) {
+    }
+
+    private void submitEntryDetails(int id) {
         wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
     }
 }
