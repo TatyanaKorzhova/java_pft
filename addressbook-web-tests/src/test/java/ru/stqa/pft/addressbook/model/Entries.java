@@ -14,7 +14,7 @@ public class Entries extends ForwardingSet<EntryData> {
     }
 
     public Entries() {
-        this.delegate = new HashSet<EntryData>();
+        this.delegate = new HashSet<>();
     }
 
     @Override

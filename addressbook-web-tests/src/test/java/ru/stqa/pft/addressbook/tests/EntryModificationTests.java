@@ -24,7 +24,7 @@ public class EntryModificationTests extends TestBase {
         }
     }
 
-    @Test
+    @Test //(enabled = false)
     public void testEntryModification() {
         // int before = app.getEntryHelper().getEntryCount();
         Entries before = app.entry().all();
