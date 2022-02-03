@@ -34,21 +34,35 @@ public class EntryHelper extends HelperBase {
 
     private Entries entryCache = null;
 
-    public Entries all() {
-        if (entryCache != null) {
-            return new Entries(entryCache);
+//    public Entries all() {
+//        if (entryCache != null) {
+//            return new Entries(entryCache);
+//        }
+//        entryCache = new Entries();
+//        WebElement element = wd.findElement(By.xpath("//*[@id='maintable']"));
+//        int count = (wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr")).size());
+//        //List<WebElement> elements = new ArrayList<>();
+//        for (int i = 2; i <= count; i++) {
+//            String lastname = (wd.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 2]"))).getText();
+//            String firstname = (wd.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 3]"))).getText();
+//            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+//            entryCache.add(new EntryData().withId(id).withFirstname(firstname).withLastname(lastname));
+//        }
+//        return new Entries(entryCache);
+//    }
+
+    public Set<EntryData> all() {
+        Set<EntryData> entries = new HashSet<EntryData>();
+        List<WebElement> rows = wd.findElements(By.name("entry"));
+        for (WebElement row : rows) {
+            List<WebElement> cells = row.findElements(By.tagName("td"));
+            int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
+            String lastname = cells.get(1).getText();
+            String firstname = cells.get(2).getText();
+              String[] phones = cells.get(5).getText().split("\n");
+           entries.add(new EntryData().withId(id).withFirstname(firstname).withLastname(lastname).withHome(phones[0]).withMobile(phones[1]).withWork(phones[2]));
         }
-        entryCache = new Entries();
-        WebElement element = wd.findElement(By.xpath("//*[@id='maintable']"));
-        int count = (wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr")).size());
-        //List<WebElement> elements = new ArrayList<>();
-        for (int i = 2; i <= count; i++) {
-            String lastname = (wd.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 2]"))).getText();
-            String firstname = (wd.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[position() = 3]"))).getText();
-            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            entryCache.add(new EntryData().withId(id).withFirstname(firstname).withLastname(lastname));
-        }
-        return new Entries(entryCache);
+        return entries;
     }
 
     public EntryHelper(WebDriver wd) {
