@@ -3,6 +3,14 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class EntryData {
+//    private int id;
+//    private String firstname;
+//    private String lastname;
+//    private String group;
+//    private String homePhone;
+//    private String mobilePhone;
+//    private String workPhone;
+
     private int id = Integer.MAX_VALUE;
     private String firstname;
     private String middlename;
@@ -29,6 +37,33 @@ public class EntryData {
     private String address2;
     private String phone2;
     private String notes;
+
+//    public String getWorkPhone() {
+//        return workPhone;
+//    }
+//
+//    public EntryData withWorkPhone(String workPhone){
+//        this.workPhone() = workPhone;
+//        return this;
+//    }
+//
+//    public String getMobilePhone() {
+//        return mobilePhone;
+//    }
+//
+//    public EntryData withMobilePhone(String mobilePhone){
+//        this.mobilePhone() = mobilePhone;
+//        return this;
+//    }
+//
+//    public String getHomePhone() {
+//        return homePhone;
+//    }
+//
+//    public EntryData withHomePhone(String homePhone){
+//        this.homePhone() = homePhone;
+//        return this;
+//    }
 
     public int getId() {
         return id;
@@ -76,16 +111,24 @@ public class EntryData {
         this.address = address;
         return this;
     }
-
+//    public String getHome() {
+//       return home;
+//    }
     public EntryData withHome(String home) {
         this.home = home;
         return this;
     }
+//    public String getMobile() {
+//        return mobile;
+//    }
 
     public EntryData withMobile(String mobile) {
         this.mobile = mobile;
         return this;
     }
+//    public String getWork() {
+//        return work;
+//    }
 
     public EntryData withWork(String work) {
         this.work = work;
@@ -276,31 +319,7 @@ public class EntryData {
     }
 
 ////
-//    public String getWorkPhone() {
-//        return workPhone;
-//    }
-//    public EntryData withWorkPhone(String workPhone){
-//        this.workPhone() = workPhone;
-//        return this;
-//    }
 //
-//    public String getMobilePhone() {
-//        return mobilePhone;
-//    }
-//
-//    public EntryData withMobilePhone(String mobilePhone){
-//        this.mobilePhone() = mobilePhone;
-//        return this;
-//    }
-//
-//    public String getHomePhone() {
-//        return homePhone;
-//    }
-//
-//    public EntryData withHomePhone(String homePhone){
-//        this.homePhone() = homePhone;
-//        return this;
-//    }
 //    ////
 //    public String getNotes() {
 //        return notes;
@@ -336,6 +355,7 @@ public class EntryData {
     public int hashCode() {
         return Objects.hash(id, firstname, lastname);
     }
+
 
     //    public EntryData withLastname(String lastname) {
 //        this.lastname = lastname;

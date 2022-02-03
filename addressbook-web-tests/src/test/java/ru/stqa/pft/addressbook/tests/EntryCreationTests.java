@@ -28,7 +28,7 @@ public class EntryCreationTests extends TestBase {
         app.entry().create(entry);
         Entries after = app.entry().all();
         // int after = app.getEntryHelper().getEntryCount();
-        assertThat(after.size(), equalTo(before.size() + 1));
+        assertThat(app.entry().count(), equalTo(before.size() + 1));
 
         assertThat(after, equalTo(
                 before.withAdded(entry.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));

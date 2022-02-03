@@ -32,8 +32,8 @@ public class EntryDeletionTests extends TestBase {
         EntryData deletedEntry = before.iterator().next(); //next возвращает любой элемент из множества
         app.entry().delete(deletedEntry);
         //int after = app.getEntryHelper().getEntryCount();
+        assertThat(app.entry().count(), equalTo(before.size() - 1));
         Entries after = app.entry().all();
-        assertEquals(after.size(), before.size() - 1);
 
         assertThat(after, equalTo(before.without(deletedEntry)));
 

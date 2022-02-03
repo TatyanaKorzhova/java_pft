@@ -181,7 +181,7 @@ public class EntryHelper extends HelperBase {
         fillEntryForm(entry/*, "create"*/);
         submitEntryCreation();
         entryCache = null;
-        
+
         returnToEntryPage();
 
     }
@@ -211,6 +211,10 @@ public class EntryHelper extends HelperBase {
         returnToHomePage();
     }
 
+    public int count() {
+        return wd.findElements(By.name("selected[]")).size();
+    }
+
     private boolean isElementPresent(By by) {
         try {
             wd.findElement(by);
@@ -237,7 +241,7 @@ public class EntryHelper extends HelperBase {
 //    public Iterable<Object> all() {
 //
 //    }
-/*
+
     public EntryData intoFromEditForm(EntryData entry) {
         initEntryModifacationById(entry.getId());
         String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
@@ -246,18 +250,22 @@ public class EntryHelper extends HelperBase {
         String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
         String work = wd.findElement(By.name("work")).getAttribute("value");
         wd.navigate().back();
-        return new EntryData().withId(entry.getId()).withFirstname(firstname).withLastname(lastname).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+        return new EntryData().withId(entry.getId()).withFirstname(firstname).withLastname(lastname).withHome(home).withMobile(mobile).withWork(work);
 
     }
 
-    private void initEntryModifacationById(int id) {
-        WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value='%s']", id)));
-        WebElement row = checkbox.findElement(By.xpath("./../.."));
-        List<WebElement> cells = row.findElements(By.tagName("td"));
-        cells.get(7).findElement(By.tagName("a")).click();
+    private void initEntryModifacationById(int id) { //выбор по заданному идентификатору из множества
+        WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value='%s']", id))); //находим чекбокс
+        WebElement row = checkbox.findElement(By.xpath("./../.."));//от чекбокса переходим к ячейке, в которой он находится, а потом к строке где он находится
+        // .. - родительский элемент
+        List<WebElement> cells = row.findElements(By.tagName("td"));//берем список ячеек ищем внутри вссе элементы с тегом td
+        cells.get(7).findElement(By.tagName("a")).click();//среди этих ячеек берем нужную, внутри ячейки находим ссылку <a> и кликаем
 
-
-        wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s]", id))).click();
+        //wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
     }
-*/
+
+
+    private void initEntryModifacation1ById(int id) {
+        wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
+    }
 }
