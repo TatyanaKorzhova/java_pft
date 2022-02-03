@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.model;
 
+import java.io.File;
 import java.util.Objects;
 
 public class EntryData {
@@ -29,6 +30,17 @@ public class EntryData {
     private String phone2;
     private String notes;
     private String allPhones;
+
+    public File getPhoto() {
+        return photo;
+    }
+
+    public EntryData withPhoto(File photo) {
+        this.photo = photo;
+        return this;
+    }
+
+    private File photo;
 
 private int id = Integer.MAX_VALUE;
 
