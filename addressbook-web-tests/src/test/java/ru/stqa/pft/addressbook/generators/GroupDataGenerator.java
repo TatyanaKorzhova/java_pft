@@ -36,18 +36,20 @@ public class GroupDataGenerator {
 
     private void run() throws IOException{
         List<GroupData> groups = generateGroups(count);
+
         save(groups, new File (file));
     }
 
-    private void save(List<GroupData> groups, File file) throws IOException {
+    private void save(List<GroupData> groups, File file) throws IOException { //каждая группа сохр в виде строки, разделенной ';'
+        System.out.println(new File(".").getAbsolutePath());
         Writer writer = new FileWriter(file);
         for (GroupData group : groups) {
-            writer.write(String.format("%s;%s;%s\n", group.getName(), group.getHeader(), group.getFooter())); //запись в файл
+            writer.write(String.format("%s;%s;%s\n", group.getName(), group.getHeader(), group.getFooter()));
         }
-        writer.close(); //закрываем файл
+        writer.close();
     }
 
-    private List<GroupData> generateGroups(int count) {
+    private List<GroupData> generateGroups(int count) { //генерируем список объектов типа GroupData тестовых данных
         List<GroupData> groups = new ArrayList<GroupData>();
         for (int i = 0; i < count; i++) {
             groups.add(new GroupData().withName(String.format("test %s", i)).withHeader(String.format("header %s", i)).withFooter(String.format("footer %s", i)));
