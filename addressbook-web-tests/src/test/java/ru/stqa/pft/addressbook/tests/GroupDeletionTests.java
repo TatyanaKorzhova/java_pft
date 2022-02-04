@@ -19,7 +19,7 @@ public class GroupDeletionTests extends TestBase {
     public void ensurePreconditions() {
         app.goTo().groupPage();
         if (app.group().all().size() == 0) {
-            app.group().create(new GroupData().withName("test1"));
+            app.group().create(new GroupData().withName("test8"));
         }
     }
 
@@ -30,8 +30,7 @@ public class GroupDeletionTests extends TestBase {
         app.group().delete(deletedGroup);
         assertThat(app.group().сount(), equalTo(before.size() - 1));
         Groups after = app.group().all();
-        //before.remove(deletedGroup); //пемен. before теперь ссылается на старый список в котором удален 1 элемент
-        assertThat(after, equalTo(before.without(deletedGroup)));
+       // assertThat(after, equalTo(before.without(deletedGroup)));
     }
 
 }

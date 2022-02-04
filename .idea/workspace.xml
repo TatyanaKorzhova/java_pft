@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ec9e45c6-1863-4268-8f71-5e6af106631b" name="Changes" comment="Code_optimization_finalization_of_tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/EntryHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/EntryHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/EntryCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/EntryCreationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/EntryModificationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/EntryModificationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupCreationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupDeletionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupDeletionTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +90,7 @@
       <recent name="C:\Users\Tanya\java_pft\addressbook-web-tests\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.GroupDeletionTests">
+  <component name="RunManager" selected="Gradle.GroupCreationTests">
     <configuration name="EntryModificationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -217,8 +215,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.GroupDeletionTests" />
         <item itemvalue="Gradle.GroupCreationTests" />
+        <item itemvalue="Gradle.GroupDeletionTests" />
         <item itemvalue="Gradle.EntryPhoneTests" />
         <item itemvalue="Gradle.EntryModificationTests" />
         <item itemvalue="Gradle.GroupCreationTests.testGroupCreation" />
