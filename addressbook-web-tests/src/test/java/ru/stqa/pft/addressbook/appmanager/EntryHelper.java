@@ -191,9 +191,18 @@ public class EntryHelper extends HelperBase {
         }
 
     }
+//    public void selectEntry(int id) {
+//
+//        List<WebElement> list = wd.findElements(By.xpath("//input[@type='checkbox']"));
+//        if (list.size() > 0) {
+//            int id = list.get(0).getAttribute("id");
+//            wd.findElement(By.xpath("//a[@href='edit.php?id=" + id + "']/img[@alt='Edit']")).click();
+//        }
+//
+//    }
 
     public void selectEntryById(int id) {
-        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+         wd.findElement(By.xpath("//a[@href='edit.php?id=" + id + "']/img[@alt='Edit']")).click();
     }
 
     public void create(EntryData entry) {
@@ -220,9 +229,7 @@ public class EntryHelper extends HelperBase {
     }
 
     public void modify(EntryData entry) {
-        //selectEntry(/*before.size()-1*/);
         selectEntryById(entry.getId());
-        //fillEntryForm(new EntryData(before.get(before.size() - 1).getId(), "test355", "test35", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "test3", "10", "May", "2022", "12", "January", "2022", "test1", "test3", "test3", "test3")/*, "edit"*/);
         fillEntryForm(entry);
         submitEntryModification();
         entryCache = null;

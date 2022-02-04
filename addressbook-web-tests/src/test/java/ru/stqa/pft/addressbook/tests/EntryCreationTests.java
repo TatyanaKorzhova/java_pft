@@ -14,7 +14,6 @@ public class EntryCreationTests extends TestBase {
 
     @Test
     public void testEntryCreation() {
-        //int before = app.getEntryHelper().getEntryCount();
         app.goTo().entryPage();
         int beforeCount = app.entry().count();
         Entries before = app.entry().all();
