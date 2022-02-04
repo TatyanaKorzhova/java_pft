@@ -92,11 +92,11 @@
       <recent name="C:\Users\Tanya\java_pft\addressbook-web-tests\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.GroupCreationTests.testGroupCreation">
+  <component name="RunManager" selected="Gradle.GroupCreationTests">
     <configuration name="GroupDataGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.generators.GroupDataGenerator" />
       <module name="addressbook-web-tests.test" />
-      <option name="PROGRAM_PARAMETERS" value="-f src/test/resources/groups.xml -c 3 -d xml" />
+      <option name="PROGRAM_PARAMETERS" value="-f src/test/resources/groups.json -c 3 -d json" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/addressbook-web-tests" />
       <extension name="coverage">
         <pattern>
@@ -209,8 +209,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.GroupCreationTests.testGroupCreation" />
         <item itemvalue="Gradle.GroupCreationTests" />
+        <item itemvalue="Gradle.GroupCreationTests.testGroupCreation" />
         <item itemvalue="Gradle.EntryModificationTests" />
         <item itemvalue="Application.GroupDataGenerator" />
         <item itemvalue="Gradle.GroupDeletionTests" />
