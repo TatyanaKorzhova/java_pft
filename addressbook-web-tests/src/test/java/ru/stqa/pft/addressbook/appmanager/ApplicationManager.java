@@ -15,21 +15,22 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
-   // private final Properties properties;
+    private final Properties properties;
     WebDriver wd;
 
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
     private String browser;
 
-    public ApplicationManager(String browser)  {
+    public ApplicationManager(String browser) {
         this.browser = browser;
-//        String target = System.getProperty("target", "local");
-//        properties = new Properties();
-//        properties.load(new FileReader(new File(String.format("src/test/test/resources/%s.properties", target))));
+        properties = new Properties();
     }
 
-    public void init() {
+    public void init() throws IOException {
+        String target = System.getProperty("target", "local");
+        properties.load(new FileReader(new File (String.format("src/test/resources/%s.properties", target))));
+
         if (browser.equals(BrowserType.FIREFOX)) {
             wd = new FirefoxDriver();
         } else if (browser.equals(BrowserType.CHROME)) {
@@ -39,13 +40,13 @@ public class ApplicationManager {
         }
 
         wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        wd.get("http://localhost/addressbook");
+        wd.get(properties.getProperty("web.baseUrl")); //перенесли в local.properties
 
         navigationHelper = new NavigationHelper(wd);
         navigationHelper.groupHelper = new GroupHelper(wd);
         navigationHelper.entryHelper = new EntryHelper(wd);
         sessionHelper = new SessionHelper(wd);
-        sessionHelper.login("admin", "secret");
+        sessionHelper.login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPassword"));
     }
 
     public void logoutPage() {
