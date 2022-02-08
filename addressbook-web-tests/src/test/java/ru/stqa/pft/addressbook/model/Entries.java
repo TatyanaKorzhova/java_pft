@@ -19,7 +19,7 @@ public class Entries extends ForwardingSet<EntryData> {
 
     @Override
     protected Set<EntryData> delegate() {
-        return delegate;
+        return this.delegate;
     }
 
     public Entries withAdded(EntryData entry) {

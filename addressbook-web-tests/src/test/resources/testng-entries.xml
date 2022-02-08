@@ -4,8 +4,8 @@
      <test name="Entries">
         <classes>
             <class name="ru.stqa.pft.addressbook.tests.EntryCreationTests" />
-<!--            <class name="ru.stqa.pft.addressbook.tests.EntryDeletionTests" />-->
-<!--            <class name="ru.stqa.pft.addressbook.tests.EntryModificationTests" />-->
+            <class name="ru.stqa.pft.addressbook.tests.EntryDeletionTests" />
+            <class name="ru.stqa.pft.addressbook.tests.EntryModificationTests" />
         </classes>
     </test>
 </suite>

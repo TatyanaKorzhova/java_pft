@@ -1,48 +1,83 @@
 package ru.stqa.pft.addressbook.model;
 
+import jakarta.persistence.*;
+
 import java.io.File;
 import java.util.Objects;
 
+
+@Entity
+@Table(name = "addressbook")
 public class EntryData {
+    @Id
+    @Column(name = "id")
+    private int id = Integer.MAX_VALUE;
+    @Column(name = "firstname")
     private String firstname;
+    @Column(name = "middlename")
     private String middlename;
+    @Column(name = "lastname")
     private String lastname;
+    @Column(name = "nickname")
     private String nickname;
+    @Column(name = "title")
     private String title;
+    @Column(name = "company")
     private String company;
+    @Column(name = "address")
     private String address;
+    @Column(name = "home", columnDefinition="TEXT")
+   // @Type(type = "text")
     private String home;
+    @Column(name = "mobile")
     private String mobile;
+    @Column(name = "work")
     private String work;
+    @Column(name = "fax")
     private String fax;
+    @Column(name = "email")
     private String email;
+    @Column(name = "email2")
     private String email2;
+    @Column(name = "email3")
     private String email3;
+    @Column(name = "homepage")
     private String homepage;
+    @Column(name = "bday")
     private String bday;
+    @Column(name = "bmonth")
     private String bmonth;
+    @Column(name = "byear")
     private String byear;
+    @Column(name = "aday")
     private String aday;
+    @Column(name = "amonth")
     private String amonth;
+    @Column(name = "ayear")
     private String ayear;
+    @Column(name = "new_group")
     private String new_group;
+    @Column(name = "address2")
     private String address2;
+    @Column(name = "phone2")
     private String phone2;
+    @Column(name = "notes")
     private String notes;
+
+    @Transient
     private String allPhones;
+    @Column(name = "photo")
+    //@Type(type = "text")
+    private String photo;
 
     public File getPhoto() {
-        return photo;
+        return new File (photo);
     }
 
     public EntryData withPhoto(File photo) {
-        this.photo = photo;
+        this.photo = photo.getPath();
         return this;
     }
-
-    private File photo;
-
-private int id = Integer.MAX_VALUE;
 
     public String getAllPhones() {
         return allPhones;

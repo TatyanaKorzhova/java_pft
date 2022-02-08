@@ -22,6 +22,7 @@ public class GroupData {
 
     @Expose //аннотация помечает какие поля должны быть реализованы
     @Column(name = "group_name")
+    //@Type(type = "text")
     private String name;
 
     @Expose
@@ -31,7 +32,7 @@ public class GroupData {
 
     @Expose
     @Column(name = "group_footer")
-  //  @Type(type = "text")
+    //@Type(type = "text")
     private String footer;
 
     public int getId() {
@@ -90,9 +91,4 @@ public class GroupData {
     public int hashCode() {
         return Objects.hash(id, name);
     }
-
-    //        int result = id;
-//        result = 31*result + (name != null ? name.hashCode() : 0);
-//        return result;
-
 }
