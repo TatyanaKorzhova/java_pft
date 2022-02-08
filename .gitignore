@@ -16,3 +16,4 @@ gradle-app.setting
 /.idea/
 /addressbook-web-tests/build/
 /sandbox/build/
+*.log
