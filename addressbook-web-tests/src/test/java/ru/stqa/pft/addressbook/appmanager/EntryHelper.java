@@ -7,9 +7,7 @@ import ru.stqa.pft.addressbook.model.EntryData;
 
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import static org.testng.Assert.assertTrue;
 
@@ -126,6 +124,17 @@ public class EntryHelper extends HelperBase {
         type(By.name("address2"), entryData.getAddress2());
         type(By.name("phone2"), entryData.getPhone2());
         type(By.name("notes"), entryData.getNotes());
+
+
+
+//        if (creation) {
+//            if (entryData.getGroups().size() > 0) { //выбирается группа из выпадающего списка
+//                Assert.assertTrue(entryData.getGroups().size() == 1);
+//                new Select(wd.findElementPresent(By.name("new_group"))).selectByVisibleText(entryData.getGroups().iterator().next().getName());
+//            }
+//        } else {
+//            Assert.assertFalse(isElementPresent(By.name("new_group")));
+//        }
 
     }
 

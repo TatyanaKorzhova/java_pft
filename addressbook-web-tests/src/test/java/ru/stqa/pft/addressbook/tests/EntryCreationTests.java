@@ -72,6 +72,19 @@ public class EntryCreationTests extends TestBase {
 
     }
 
+//    @Test
+//    public void testEntryCreation() {
+//        Groups groups = app.db().groups();
+//        File photo = new File("src/test/resources/stru.png");
+//        EntryData newEntry = new EntryData().withFirstname("test_name").withLastname("test_surname").withPhoto(photo).inGroup(groups.iterator().next());
+//        app.goTo().gotoHomePage();
+//        app.entry().initEntryCreation();
+//        app.entry().fillEntryForm(newEntry, true);
+//        app.entry().submitEntryCreation();
+//        app.entry().returnToHomePage();
+//    }
+
+
     @Test (enabled = false)
     public void testCerrentDir() {
         File currentDir = new File(".");

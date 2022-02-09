@@ -3,7 +3,9 @@ package ru.stqa.pft.addressbook.model;
 import jakarta.persistence.*;
 
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 
 @Entity
@@ -55,7 +57,7 @@ public class EntryData {
     private String amonth;
     @Column(name = "ayear")
     private String ayear;
-    @Column(name = "new_group")
+    @Column(name = "new_group")   //для связи many to many нужно убрать new_group
     private String new_group;
     @Column(name = "address2")
     private String address2;
@@ -69,6 +71,15 @@ public class EntryData {
     @Column(name = "photo")
     //@Type(type = "text")
     private String photo;
+
+    @ManyToMany(fetch = FetchType.EAGER)//чтобы из БД извлекалось как можно больше информ. за одно соединение
+    @JoinTable(name = "address_in_groups",
+            joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<GroupData> groups = new HashSet<GroupData>();
+
+    public Groups getGroups() {
+        return new Groups(groups);
+    }
 
     public File getPhoto() {
         return new File (photo);
@@ -340,4 +351,8 @@ public class EntryData {
         return Objects.hash(id, firstname, lastname);
     }
 
+    public EntryData inGroup(GroupData group) {
+        groups.add(group);
+        return this;
+    }
 }
