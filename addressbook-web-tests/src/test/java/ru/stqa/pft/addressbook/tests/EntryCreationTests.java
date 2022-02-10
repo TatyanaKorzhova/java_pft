@@ -61,7 +61,7 @@ public class EntryCreationTests extends TestBase {
         Entries before = app.entry().all();
         app.goTo().gotoAddEntryPage();
         File photo = new File("src/test/resources/stru.png");
-        EntryData entry = new EntryData().withFirstname("firstname1").withLastname("").withBday("10").withBmonth("May").withByear("2022").withPhoto(photo);
+        EntryData entry = new EntryData().withFirstname("firstname1").withLastname("");
         app.entry().create(entry);
         Entries after = app.entry().all();
         // int after = app.getEntryHelper().getEntryCount();

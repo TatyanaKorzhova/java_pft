@@ -72,7 +72,7 @@ public class EntryDataGenerator {
         System.out.println(new File(".").getAbsolutePath());
         try (Writer writer = new FileWriter(file)) {
             for (EntryData entry : entries) {
-                writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n", entry.getFirstname(), entry.getMiddlename(), entry.getLastname(), entry.getNickname(), entry.getTitle(), entry.getCompany(), entry.getAddress(), entry.getHome(), entry.getMobile(), entry.getWork(), entry.getFax(),entry.getEmail(), entry.getEmail2(), entry.getEmail2(), entry.getHomepage(), entry.getBday(), entry.getBmonth(), entry.getByear(), entry.getAday(), entry.getAmonth(), entry.getAyear(), entry.getNew_group(), entry.getAddress2(), entry.getPhone2(), entry.getNotes(), entry.getAllPhones()));
+                writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n", entry.getFirstname(), entry.getMiddlename(), entry.getLastname(), entry.getNickname(), entry.getTitle(), entry.getCompany(), entry.getAddress(), entry.getHome(), entry.getMobile(), entry.getWork(), entry.getFax(),entry.getEmail(), entry.getEmail2(), entry.getEmail2(), entry.getHomepage(), entry.getBday(), entry.getBmonth(), entry.getByear(), entry.getAday(), entry.getAmonth(), entry.getAyear(), /*entry.getNew_group(),*/ entry.getAddress2(), entry.getPhone2(), entry.getNotes(), entry.getAllPhones()));
             }
         }
     }

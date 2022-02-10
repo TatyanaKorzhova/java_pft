@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 import jakarta.persistence.*;
 
 import java.io.File;
@@ -7,7 +8,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-
+@XStreamAlias("entry")
 @Entity
 @Table(name = "addressbook")
 public class EntryData {
@@ -46,19 +47,19 @@ public class EntryData {
     @Column(name = "homepage")
     private String homepage;
     @Column(name = "bday")
-    private String bday;
+    private int bday;
     @Column(name = "bmonth")
     private String bmonth;
     @Column(name = "byear")
     private String byear;
     @Column(name = "aday")
-    private String aday;
+    private int aday;
     @Column(name = "amonth")
     private String amonth;
     @Column(name = "ayear")
     private String ayear;
-    @Column(name = "new_group")   //для связи many to many нужно убрать new_group
-    private String new_group;
+//    @Column(name = "new_group")   //для связи many to many нужно убрать new_group
+//    private String new_group;
     @Column(name = "address2")
     private String address2;
     @Column(name = "phone2")
@@ -68,8 +69,8 @@ public class EntryData {
 
     @Transient
     private String allPhones;
+
     @Column(name = "photo")
-    //@Type(type = "text")
     private String photo;
 
     @ManyToMany(fetch = FetchType.EAGER)//чтобы из БД извлекалось как можно больше информ. за одно соединение
@@ -233,10 +234,10 @@ public class EntryData {
     }
 
     public String getBday() {
-        return bday;
+        return (String.valueOf(bday));
     }
     public EntryData withBday(String bday) {
-        this.bday = bday;
+        this.bday = Integer.parseInt(bday);
         return this;
     }
 
@@ -256,12 +257,21 @@ public class EntryData {
         return this;
     }
 
-    public String getAday() {
-        return aday;
-    }
-    public EntryData withAday(String aday) {
+//    public Int getAday() {
+//        return aday;
+//    }
+//    public EntryData withAday(Int aday) {
+//        this.aday = aday;
+//        return this;
+//    }
+
+    public EntryData withAday(int aday) {
         this.aday = aday;
         return this;
+    }
+
+    public int getAday() {
+        return aday;
     }
 
     public String getAmonth() {
@@ -280,13 +290,13 @@ public class EntryData {
         return this;
     }
 
-    public String getNew_group() {
-        return new_group;
-    }
-    public EntryData withNew_group(String new_group) {
-        this.new_group = new_group;
-        return this;
-    }
+//    public String getNew_group() {
+//        return new_group;
+//    }
+//    public EntryData withNew_group(String new_group) {
+//        this.new_group = new_group;
+//        return this;
+//    }
 
     public String getAddress2() {
         return address2;

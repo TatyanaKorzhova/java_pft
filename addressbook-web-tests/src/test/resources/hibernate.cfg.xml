@@ -4,6 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/addressbook</property>
         <property name="connection.username">root</property>
@@ -17,4 +18,6 @@
         <mapping class="ru.stqa.pft.addressbook.model.EntryData"/>
 
     </session-factory>
+    <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
+
 </hibernate-configuration>

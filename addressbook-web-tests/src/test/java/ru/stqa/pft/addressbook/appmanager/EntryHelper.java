@@ -96,9 +96,9 @@ public class EntryHelper extends HelperBase {
             wd.findElement(By.name("byear")).clear();
             wd.findElement(By.name("byear")).sendKeys(entryData.getByear());
         }
-        if (entryData.getAday() != null && entryData.getAmonth() != null && entryData.getAyear() != null) {
+        if (entryData.getAday() != 0 && entryData.getAmonth() != null && entryData.getAyear() != null) {
             wd.findElement(By.name("aday")).click();
-            new Select(wd.findElement(By.name("aday"))).selectByVisibleText(entryData.getAday());
+            new Select(wd.findElement(By.name("aday"))).selectByVisibleText(String.valueOf(entryData.getAday()));
             wd.findElement(By.xpath("//div[@id='content']/form/select[3]/option[14]")).click();
             wd.findElement(By.name("amonth")).click();
             new Select(wd.findElement(By.name("amonth"))).selectByVisibleText(entryData.getAmonth());
@@ -109,11 +109,11 @@ public class EntryHelper extends HelperBase {
         }
         wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
 
-        if (wd.findElements(By.name("//select[@name=new_group]")).size() > 0) {
-            wd.findElement(By.name("new_group")).click();
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(entryData.getNew_group());
-            wd.findElement(By.xpath("//div[@id='content']/form/select[5]/option[2]")).click();
-        }
+//        if (wd.findElements(By.name("//select[@name=new_group]")).size() > 0) {
+//            wd.findElement(By.name("new_group")).click();
+//            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(entryData.getNew_group());
+//            wd.findElement(By.xpath("//div[@id='content']/form/select[5]/option[2]")).click();
+//        }
 
 
 //        if (option.equals("create")) {

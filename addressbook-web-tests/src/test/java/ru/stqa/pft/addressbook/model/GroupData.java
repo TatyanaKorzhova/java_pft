@@ -33,18 +33,18 @@ public class GroupData {
     }
 
     @Expose //аннотация помечает какие поля должны быть реализованы
-    @Column(name = "group_name")
+    @Column(name = "group_name", columnDefinition = "text")
     //@Type(type = "text")
     private String name;
 
     @Expose
-    @Column(name = "group_header")
-   // @Type(type = "text")
+    @Column(name = "group_header", columnDefinition = "text")
+    //@Type(type = "mediumtext")
     private String header;
 
     @Expose
-    @Column(name = "group_footer")
-    //@Type(type = "text")
+    @Column(name = "group_footer", columnDefinition = "text")
+   // @Type(type = "text")
     private String footer;
 
     @ManyToMany(mappedBy = "groups")
