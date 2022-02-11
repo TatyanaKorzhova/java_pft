@@ -211,7 +211,7 @@ public class EntryHelper extends HelperBase {
 //    }
 
     public void selectEntryById(int id) {
-         wd.findElement(By.xpath("//a[@href='edit.php?id=" + id + "']/img[@alt='Edit']")).click();
+         wd.findElement(By.cssSelector("//a[@href='edit.php?id=" + id + "']/img[@alt='Edit']")).click();
     }
 
     public void create(EntryData entry) {

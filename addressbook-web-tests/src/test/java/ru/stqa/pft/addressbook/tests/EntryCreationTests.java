@@ -55,7 +55,7 @@ public class EntryCreationTests extends TestBase {
     }
 
     @Test
-    public void testEntryCreation() {
+    public void testEntryCreation(/*dataProvider = "validEntriesFromJson"*/) {
         app.goTo().entryPage();
         int beforeCount = app.entry().count();
         Entries before = app.entry().all();

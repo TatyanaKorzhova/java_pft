@@ -1,6 +1,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Suite1" verbose="1">
+    <test name="Connection">
+        <classes>
+        <class name="ru.stqa.pft.addressbook.tests.HbConnectionTest"/>
+        <class name="ru.stqa.pft.addressbook.tests.DbConnectionTest"/>
+        </classes>
+    </test>
     <test name="Groups">
         <classes>
             <class name="ru.stqa.pft.addressbook.tests.GroupCreationTests"/>
@@ -14,6 +20,7 @@
             <class name="ru.stqa.pft.addressbook.tests.EntryCreationTests"/>
             <class name="ru.stqa.pft.addressbook.tests.EntryDeletionTests"/>
             <class name="ru.stqa.pft.addressbook.tests.EntryModificationTests"/>
+
         </classes>
     </test>
 </suite>

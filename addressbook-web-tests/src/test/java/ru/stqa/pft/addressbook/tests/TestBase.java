@@ -22,7 +22,7 @@ public class TestBase {
 
     Logger logger = LoggerFactory.getLogger(TestBase.class);
 
-    protected static final ApplicationManager app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));//взять значение системного свойства
+    protected static final ApplicationManager app = new ApplicationManager(System.getProperty("browser", BrowserType.FIREFOX));//взять значение системного свойства
     //  protected WebDriver wd;
 
     @BeforeSuite
@@ -46,7 +46,7 @@ public class TestBase {
     }
 
     public void verifyGroupListInUI() { //сравниваем 2 множества
-        if (Boolean.getBoolean("verifyUI")){ //получаем сис св с заданным именем и преобразуем его в boolean
+        if (Boolean.getBoolean("verifyUI")){ //получаем сист. св. с заданным именем и преобразуем его в boolean
             Groups dbGroups = app.db().groups(); //список групп из БД
             Groups uiGroups = app.group().all(); //список групп из интерфейса
             assertThat(uiGroups, equalTo(dbGroups.stream()

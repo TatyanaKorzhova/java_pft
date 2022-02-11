@@ -46,8 +46,8 @@ public class EntryData {
     private String email3;
     @Column(name = "homepage")
     private String homepage;
-    @Column(name = "bday")
-    private int bday;
+    @Column(name = "bday", columnDefinition = "tinyint")
+    private String bday;
     @Column(name = "bmonth")
     private String bmonth;
     @Column(name = "byear")
@@ -234,10 +234,24 @@ public class EntryData {
     }
 
     public String getBday() {
-        return (String.valueOf(bday));
+        return bday;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EntryData entryData = (EntryData) o;
+        return id == entryData.id && Objects.equals(firstname, entryData.firstname) && Objects.equals(lastname, entryData.lastname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstname, lastname);
+    }
+
     public EntryData withBday(String bday) {
-        this.bday = Integer.parseInt(bday);
+        this.bday = bday;
         return this;
     }
 
@@ -346,19 +360,6 @@ public class EntryData {
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        EntryData entryData = (EntryData) o;
-        return id == entryData.id && Objects.equals(firstname, entryData.firstname) && Objects.equals(lastname, entryData.lastname);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstname, lastname);
     }
 
     public EntryData inGroup(GroupData group) {
