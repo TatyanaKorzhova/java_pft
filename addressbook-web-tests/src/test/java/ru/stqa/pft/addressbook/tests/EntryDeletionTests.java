@@ -14,6 +14,7 @@ public class EntryDeletionTests extends TestBase {
     public void ensurePreconditions() {
         app.goTo().entryPage();
         if (app.entry().all().size() == 0) {
+            app.goTo().gotoAddEntryPage();
             app.entry().create(new EntryData().withFirstname("firstname2"));
         }
     }
@@ -55,15 +56,15 @@ public class EntryDeletionTests extends TestBase {
     public void testEntryDeletion() {
         app.goTo().entryPage();
         //int before = app.getEntryHelper().getEntryCount();
-        Entries before = app.entry().all();
+        Entries before = app.db().entries();
         EntryData deletedEntry = before.iterator().next(); //next возвращает любой элемент из множества
         app.entry().delete(deletedEntry);
         //int after = app.getEntryHelper().getEntryCount();
         assertThat(app.entry().count(), equalTo(before.size() - 1));
-        Entries after = app.entry().all();
+        Entries after = app.db().entries();
 
         assertThat(after, equalTo(before.without(deletedEntry)));
-
+        verifyEntryListInUI();
     }
 
 }

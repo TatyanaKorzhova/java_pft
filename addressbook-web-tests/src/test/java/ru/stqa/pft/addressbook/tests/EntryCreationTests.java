@@ -58,18 +58,18 @@ public class EntryCreationTests extends TestBase {
     public void testEntryCreation(/*dataProvider = "validEntriesFromJson"*/) {
         app.goTo().entryPage();
         int beforeCount = app.entry().count();
-        Entries before = app.entry().all();
+        Entries before = app.db().entries();
         app.goTo().gotoAddEntryPage();
         File photo = new File("src/test/resources/stru.png");
         EntryData entry = new EntryData().withFirstname("firstname1").withLastname("");
         app.entry().create(entry);
-        Entries after = app.entry().all();
+        Entries after = app.db().entries();
         // int after = app.getEntryHelper().getEntryCount();
         assertThat(app.entry().count(), equalTo(beforeCount + 1));
 
         assertThat(after, equalTo(
                 before.withAdded(entry.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
-
+        verifyEntryListInUI();
     }
 
 //    @Test

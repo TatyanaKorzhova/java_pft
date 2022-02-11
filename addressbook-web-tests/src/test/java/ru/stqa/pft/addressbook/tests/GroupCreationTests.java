@@ -3,21 +3,21 @@ package ru.stqa.pft.addressbook.tests;
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 import org.openqa.selenium.json.TypeToken;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.testng.annotations.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
-import java.io.*;
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//import static java.util.stream.Nodes.collect;
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GroupCreationTests extends TestBase {
 
@@ -79,11 +79,11 @@ public class GroupCreationTests extends TestBase {
     @Test(enabled = false)
     public void testBadGroupCreation() { //Группа с ' не должна создаваться
         app.goTo().groupPage();
-        Groups before = app.group().all();
+        Groups before = app.db().groups();
         GroupData group = new GroupData().withName("test7'");
         app.group().create(group);
         assertThat(app.group().сount(), equalTo(before.size()));
-        Groups after = app.group().all();
+        Groups after = app.db().groups();
         assertThat(after, equalTo(before));
     }
 

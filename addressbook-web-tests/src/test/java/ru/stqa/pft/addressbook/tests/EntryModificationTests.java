@@ -58,7 +58,7 @@ public class EntryModificationTests extends TestBase {
         app.goTo().gotoHomePage();
         EntryData modifiedEntry = before.iterator().next(); //next возвращает любой элемент из множества
         EntryData entry = new EntryData()
-                .withId(modifiedEntry.getId()).withFirstname("modified").withMiddlename("modified").withLastname("modified").withNickname("modified").withTitle("modified").withCompany("modified").withAddress("modified").withHome("modified");
+                .withId(modifiedEntry.getId()).withFirstname("modified").withMiddlename("modified").withLastname("modified").withNickname("modified").withTitle("modified").withCompany("modified").withAddress("modified").withHome("modified").withPhoto(modifiedEntry.getPhoto());
         app.goTo().gotoHomePage();
         app.entry().modify(entry);
         // int after = app.getEntryHelper().getEntryCount();
@@ -67,6 +67,7 @@ public class EntryModificationTests extends TestBase {
         Entries after = app.db().entries();
 
         assertThat(after, equalTo(before.without(modifiedEntry).withAdded(entry)));
+        verifyEntryListInUI();
     }
 
 }

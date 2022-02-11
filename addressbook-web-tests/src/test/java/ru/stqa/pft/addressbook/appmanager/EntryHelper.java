@@ -5,8 +5,12 @@ import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.Entries;
 import ru.stqa.pft.addressbook.model.EntryData;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import static org.testng.Assert.assertTrue;
@@ -68,12 +72,25 @@ public class EntryHelper extends HelperBase {
 //        return entries;
 //    }
 
-    public void fillEntryForm(EntryData entryData/*, String option*/) {
+    public File getPhoto (String photo) throws IOException {
+        String base64Image = photo.split(":")[1];
+        byte dearr[] = Base64.getDecoder().decode(base64Image);
+        File f = new File("src/test/resources/stru.png");
+        FileOutputStream fos = new FileOutputStream(f);
+        fos.write(dearr);
+        fos.close();
+        return  f;
+    }
+
+    public void fillEntryForm(EntryData entryData/*, String option*/)  {
         type(By.name("firstname"), entryData.getFirstname());
         type(By.name("middlename"), entryData.getMiddlename());
         type(By.name("lastname"), entryData.getLastname());
         type(By.name("nickname"), entryData.getNickname());
-        attach(By.name("photo"), entryData.getPhoto());
+        try {
+            attach(By.name("photo"), getPhoto(entryData.getPhoto()));
+        } catch (Exception ex) {
+        }
         type(By.name("title"), entryData.getTitle());
         type(By.name("company"), entryData.getCompany());
         type(By.name("address"), entryData.getAddress());
@@ -211,10 +228,13 @@ public class EntryHelper extends HelperBase {
 //    }
 
     public void selectEntryById(int id) {
-         wd.findElement(By.cssSelector("//a[@href='edit.php?id=" + id + "']/img[@alt='Edit']")).click();
+         wd.findElement(By.xpath("//a[@href='edit.php?id=" + id + "']/img[@alt='Edit']")).click();
+//         wd.findElement(By.cssSelector("input[value='"+ id +"']")).click();
+//         click(By.name("img[@alt='Edit'"));
+
     }
 
-    public void create(EntryData entry) {
+    public void create(EntryData entry)  {
         fillEntryForm(entry/*, "create"*/);
         submitEntryCreation();
         entryCache = null;

@@ -2,11 +2,10 @@ package ru.stqa.pft.addressbook.tests;
 
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.json.TypeToken;
-import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
@@ -16,12 +15,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.testng.Assert.*;
 
 public class GroupDeletionTests extends TestBase {
     @BeforeMethod
@@ -68,11 +65,11 @@ public class GroupDeletionTests extends TestBase {
 
     @Test
     public void testGroupDeletion() {
-        Groups before = app.group().all();
+        Groups before = app.db().groups();
         GroupData deletedGroup = before.iterator().next();
         app.group().delete(deletedGroup);
         assertThat(app.group().сount(), equalTo(before.size() - 1));
-        Groups after = app.group().all();
+        Groups after = app.db().groups();
        // assertThat(after, equalTo(before.without(deletedGroup)));
     }
 

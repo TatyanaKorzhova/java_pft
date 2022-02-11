@@ -2,8 +2,8 @@ package ru.stqa.pft.addressbook.model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Where;
 
-import java.io.File;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -11,6 +11,7 @@ import java.util.Set;
 @XStreamAlias("entry")
 @Entity
 @Table(name = "addressbook")
+@Where(clause = "deprecated='0000-00-00'")
 public class EntryData {
     @Id
     @Column(name = "id")
@@ -70,7 +71,7 @@ public class EntryData {
     @Transient
     private String allPhones;
 
-    @Column(name = "photo")
+    @Column(name = "photo", columnDefinition = "mediumtext")
     private String photo;
 
     @ManyToMany(fetch = FetchType.EAGER)//чтобы из БД извлекалось как можно больше информ. за одно соединение
@@ -82,12 +83,12 @@ public class EntryData {
         return new Groups(groups);
     }
 
-    public File getPhoto() {
-        return new File (photo);
+    public String getPhoto() {
+        return photo;
     }
 
-    public EntryData withPhoto(File photo) {
-        this.photo = photo.getPath();
+    public EntryData withPhoto(String photo) {
+        this.photo = photo;
         return this;
     }
 
